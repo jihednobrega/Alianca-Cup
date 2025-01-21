@@ -132,7 +132,52 @@ const teams: Team[] = [
     name: 'San Marino',
     logo: SanMarino,
     colorPrimary: '#4c1d95',
-    players: ['Jogador 4', 'Jogador 5', 'Jogador 6', 'Jogador 7', 'Jogador 8', 'Jogador 9'],
+    players: [
+      {
+        playerName: 'Lucas',
+        playerPosition: 'OPOSTO',
+        playerNumber: '11',
+        playerImage: '../../src/assets/players/san marino/Lucas.png',
+        isTeamCaptain: true,
+      },
+      {
+        playerName: 'Sampaio',
+        playerPosition: 'CENTRAL',
+        playerNumber: '6',
+        playerImage: '../../src/assets/players/san marino/Vitor.png',
+      },
+      {
+        playerName: 'Solberg',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '31',
+        playerImage: '../../src/assets/players/san marino/Solberg.png',
+      },
+      {
+        playerName: 'Aldo',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '2',
+        playerImage: '../../src/assets/players/san marino/Aldo.png',
+      },
+      {
+        playerName: 'Kezz',
+        playerPosition: 'CENTRAL',
+        playerNumber: '8',
+        playerImage: '../../src/assets/players/san marino/Kezz.png',
+      },
+      {
+        playerName: 'Henze',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '5',
+        playerImage: '../../src/assets/players/san marino/Henze.png',
+      },
+    ],
+    libero: {
+      playerName: 'Jadson',
+      playerPosition: 'LIBERO',
+      playerNumber: '25',
+      playerImage: '../../src/assets/players/san marino/Jadson.png',
+      substitutes: [4],
+    },
   },
   {
     id: 3,
@@ -160,7 +205,64 @@ const teams: Team[] = [
     name: 'Volei União',
     logo: União,
     colorPrimary: '#14532d',
-    players: ['Jogador 28', 'Jogador 29', 'Jogador 30', 'Jogador 31', 'Jogador 32', 'Jogador 33'],
+    players: [
+      {
+        playerName: 'Igor',
+        playerPosition: 'OPOSTO',
+        playerNumber: '7',
+        playerImage: '../../src/assets/players/união/Igor.png',
+        isTeamCaptain: true,
+      },
+      {
+        playerName: 'Salgado',
+        playerPosition: 'CENTRAL',
+        playerNumber: '8',
+        playerImage: '../../src/assets/players/união/Salgado.png',
+      },
+      {
+        playerName: 'Mateus',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '13',
+        playerImage: '../../src/assets/players/união/Mateus.png',
+      },
+      {
+        playerName: 'Pedro Igor',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '15',
+        playerImage: '../../src/assets/players/união/Pedro Igor.png',
+      },
+      {
+        playerName: 'L. Eduardo',
+        playerPosition: 'CENTRAL',
+        playerNumber: '10',
+        playerImage: '../../src/assets/players/união/Luiz Eduardo.png',
+      },
+      {
+        playerName: 'Gabriel',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '2',
+        playerImage: '../../src/assets/players/união/Gabriel.png',
+      },
+      {
+        playerName: 'Murillo',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '12',
+        playerImage: '../../src/assets/players/união/Murillo.png',
+      },
+      {
+        playerName: 'Luiz Felipe',
+        playerPosition: 'OPOSTO',
+        playerNumber: '11',
+        playerImage: '../../src/assets/players/união/Luiz Felipe.png',
+      },
+    ],
+    libero: {
+      playerName: 'Leonardo',
+      playerPosition: 'LIBERO',
+      playerNumber: '6',
+      playerImage: '../../src/assets/players/união/Leonardo.png',
+      substitutes: [4],
+    },
   },
 ]
 
@@ -198,7 +300,7 @@ export function TeamDetails() {
     setTimeout(() => {
       setRotatingCards((prev) => prev.filter((i) => i !== index))
       handleLiberoToggle(index) // Chama a troca do líbero após a animação
-    }, 600) // Tempo de duração da animação
+    }, 300) // Tempo de duração da animação
   }
 
   const toggleTab = (tab: 'subs' | 'stats') => {
@@ -268,7 +370,7 @@ export function TeamDetails() {
                 style={{
                   position: 'relative',
                   transform: rotatingCards.includes(index) ? 'rotateY(90deg)' : 'rotateY(0deg)',
-                  transition: 'transform 0.6s ease-in-out',
+                  transition: 'transform 0.3s ease-in-out',
                 }}
               >
                 <PlayerCard
@@ -374,30 +476,30 @@ export function TeamDetails() {
                     <ul>
                       <li>
                         Maior Pontuador:
-                        {isPlayer(teams[0].players[0]) && (
+                        {isPlayer(team.players[0]) && (
                           <>
-                            <img src={teams[0].players[0].playerImage} alt="Maior Pontuador" />
-                            <strong>{teams[0].players[0].playerName}</strong>
+                            <img src={team.players[0].playerImage} alt="Maior Pontuador" />
+                            <strong>{team.players[0].playerName}</strong>
                           </>
                         )}
                         <span>(120 pontos)</span>
                       </li>
                       <li>
                         Maior Bloqueador:
-                        {isPlayer(teams[0].players[4]) && (
+                        {isPlayer(team.players[4]) && (
                           <>
-                            <img src={teams[0].players[4].playerImage} alt="Maior Bloqueador" />
-                            <strong>{teams[0].players[4].playerName}</strong>
+                            <img src={team.players[4].playerImage} alt="Maior Bloqueador" />
+                            <strong>{team.players[4].playerName}</strong>
                           </>
                         )}
                         <span>(35 bloqueios)</span>
                       </li>
                       <li>
                         Líder em aces:
-                        {isPlayer(teams[0].players[1]) && (
+                        {isPlayer(team.players[1]) && (
                           <>
-                            <img src={teams[0].players[1].playerImage} alt="Líder em Aces" />
-                            <strong>{teams[0].players[1].playerName}</strong>
+                            <img src={team.players[1].playerImage} alt="Líder em Aces" />
+                            <strong>{team.players[1].playerName}</strong>
                           </>
                         )}
                         <span>(10 aces)</span>
@@ -466,30 +568,30 @@ export function TeamDetails() {
               <ul>
                 <li>
                   Maior Pontuador:
-                  {isPlayer(teams[0].players[0]) && (
+                  {isPlayer(team.players[0]) && (
                     <>
-                      <img src={teams[0].players[0].playerImage} alt="Maior Pontuador" />
-                      <strong>{teams[0].players[0].playerName}</strong>
+                      <img src={team.players[0].playerImage} alt="Maior Pontuador" />
+                      <strong>{team.players[0].playerName}</strong>
                     </>
                   )}
                   <span>(120 pontos)</span>
                 </li>
                 <li>
                   Maior Bloqueador:
-                  {isPlayer(teams[0].players[4]) && (
+                  {isPlayer(team.players[4]) && (
                     <>
-                      <img src={teams[0].players[4].playerImage} alt="Maior Bloqueador" />
-                      <strong>{teams[0].players[4].playerName}</strong>
+                      <img src={team.players[4].playerImage} alt="Maior Bloqueador" />
+                      <strong>{team.players[4].playerName}</strong>
                     </>
                   )}
                   <span>(35 bloqueios)</span>
                 </li>
                 <li>
                   Líder em aces:
-                  {isPlayer(teams[0].players[1]) && (
+                  {isPlayer(team.players[1]) && (
                     <>
-                      <img src={teams[0].players[1].playerImage} alt="Líder em Aces" />
-                      <strong>{teams[0].players[1].playerName}</strong>
+                      <img src={team.players[1].playerImage} alt="Líder em Aces" />
+                      <strong>{team.players[1].playerName}</strong>
                     </>
                   )}
                   <span>(10 aces)</span>
