@@ -63,7 +63,7 @@ export const NavBarWrapper = styled.footer`
   p.copyright {
     /* margin-top: auto; */
     /* padding: 0.625rem; */
-    margin-block: 0.75rem 0;
+    margin-block: 1rem;
     font-size: 0.75rem;
     text-align: center;
 

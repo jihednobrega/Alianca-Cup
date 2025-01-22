@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const LayoutContainer = styled.div`
   max-width: 80rem;
   height: calc(100vh - 10rem);
-  /* margin: 2rem auto 0; */
+  margin: 2rem auto 0;
   padding-inline: 2.5rem;
 
   display: flex;

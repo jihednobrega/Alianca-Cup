@@ -6,7 +6,7 @@ export const TeamDetailsContainer = styled.main`
   height: 100vh;
   text-align: center;
   margin-inline: -2.5rem;
-  overflow: hidden;
+  overflow-y: auto;
 
   .desk-stats-content {
     display: none;
