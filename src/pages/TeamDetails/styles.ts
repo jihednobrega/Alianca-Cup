@@ -192,7 +192,7 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
     display: flex;
     justify-content: space-between;
     gap: 2px;
-    /* padding: 10px 0; */
+    padding-bottom: 8rem;
 
     button {
       flex: 1;
