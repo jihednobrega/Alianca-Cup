@@ -140,7 +140,7 @@ export const Main = styled.div`
   position: relative;
   height: 100%;
 
-  background: url('/src/assets/volleyball-court.jpg') no-repeat center center;
+  background: url('/assets/volleyball-court.jpg') no-repeat center center;
   background-size: cover;
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
