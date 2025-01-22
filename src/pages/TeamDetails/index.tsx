@@ -6,7 +6,7 @@ import { ArrowsClockwise, CaretDown, CaretLeft, CaretUp } from '@phosphor-icons/
 import Aliança from '/assets/teams/Aliança Volei.png'
 import SanMarino from '/assets/teams/San Marino.png'
 import Up from '/assets/teams/Volei Up.png'
-import VoleiNatal from '/assets/teams/Volei Natal.png'
+import Neopolis from '/assets/teams/Neopolis Volei.png'
 import GelaVolei from '/assets/teams/Gela Volei.png'
 import União from '/assets/teams/Volei União.png'
 
@@ -183,22 +183,192 @@ const teams: Team[] = [
     id: 3,
     name: 'Volei Up',
     logo: Up,
-    colorPrimary: '#012b42',
-    players: ['Jogador 10', 'Jogador 11', 'Jogador 12', 'Jogador 13', 'Jogador 14', 'Jogador 15'],
+    colorPrimary: '#aa347d',
+    players: [
+      {
+        playerName: 'João',
+        playerPosition: 'OPOSTO',
+        playerNumber: '11',
+        playerImage: '/assets/players/up/João.png',
+      },
+      {
+        playerName: 'Wheverton',
+        playerPosition: 'CENTRAL',
+        playerNumber: '10',
+        playerImage: '/assets/players/up/Wheverton.png',
+        isTeamCaptain: true,
+      },
+      {
+        playerName: 'Eli',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '3',
+        playerImage: '/assets/players/up/Eliziano.png',
+      },
+      {
+        playerName: 'Franklin',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '2',
+        playerImage: '/assets/players/up/Franklin.png',
+      },
+      {
+        playerName: 'Harry',
+        playerPosition: 'CENTRAL',
+        playerNumber: '7',
+        playerImage: '/assets/players/up/Harry.png',
+      },
+      {
+        playerName: 'Edu',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '83',
+        playerImage: '/assets/players/up/Edu.png',
+      },
+      {
+        playerName: 'Rodrigo',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '11',
+        playerImage: '/assets/players/up/Rodrigo.png',
+      },
+      {
+        playerName: 'Matheus',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '9',
+        playerImage: '/assets/players/up/Matheus.png',
+      },
+      {
+        playerName: 'Sérgio',
+        playerPosition: 'OPOSTO',
+        playerNumber: '4',
+        playerImage: '/assets/players/up/Sergio.png',
+      },
+    ],
   },
   {
     id: 4,
-    name: 'Volei Natal',
-    logo: VoleiNatal,
-    colorPrimary: '#1f3785',
-    players: ['Jogador 16', 'Jogador 17', 'Jogador 18', 'Jogador 19', 'Jogador 20', 'Jogador 21'],
+    name: 'Neópolis',
+    logo: Neopolis,
+    colorPrimary: '#0369a1',
+    players: [
+      {
+        playerName: 'Adriel',
+        playerPosition: 'OPOSTO',
+        playerNumber: '21',
+        playerImage: '/assets/players/neopolis/Adriel.png',
+      },
+      {
+        playerName: 'Amaro',
+        playerPosition: 'CENTRAL',
+        playerNumber: '13',
+        playerImage: '/assets/players/neopolis/Amaro.png',
+        isTeamCaptain: true,
+      },
+      {
+        playerName: 'Jean',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '9',
+        playerImage: '/assets/players/neopolis/Jean.png',
+      },
+      {
+        playerName: 'Ezequiel',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '12',
+        playerImage: '/assets/players/neopolis/Ezequiel.png',
+      },
+      {
+        playerName: 'Hélio',
+        playerPosition: 'CENTRAL',
+        playerNumber: '7',
+        playerImage: '/assets/players/neopolis/Hélio.png',
+      },
+      {
+        playerName: 'Luan',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '1',
+        playerImage: '/assets/players/neopolis/Luan.png',
+      },
+      {
+        playerName: 'Mingau',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '8',
+        playerImage: '/assets/players/neopolis/Mingau.png',
+      },
+    ],
+    libero: {
+      playerName: 'Rafa',
+      playerPosition: 'LIBERO',
+      playerNumber: '6',
+      playerImage: '/assets/players/neopolis/Rafa.png',
+      substitutes: [4],
+    },
   },
   {
     id: 5,
     name: 'Gela Volei',
     logo: GelaVolei,
-    colorPrimary: '#314ead',
-    players: ['Jogador 22', 'Jogador 23', 'Jogador 24', 'Jogador 25', 'Jogador 26', 'Jogador 27'],
+    colorPrimary: '#0c31a8',
+    players: [
+      {
+        playerName: 'Cabral',
+        playerPosition: 'OPOSTO',
+        playerNumber: '17',
+        playerImage: '/assets/players/gela/Cabral.png',
+      },
+      {
+        playerName: 'Abbott',
+        playerPosition: 'CENTRAL',
+        playerNumber: '10',
+        playerImage: '/assets/players/gela/Abbott.png',
+      },
+      {
+        playerName: 'Robson',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '11',
+        playerImage: '/assets/players/gela/Robson.png',
+      },
+      {
+        playerName: 'Duda',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '9',
+        playerImage: '/assets/players/gela/Duda.png',
+        isTeamCaptain: true,
+      },
+      {
+        playerName: 'Pedro P.',
+        playerPosition: 'CENTRAL',
+        playerNumber: '80',
+        playerImage: '/assets/players/gela/Pedro Paulo.png',
+      },
+      {
+        playerName: 'Jay',
+        playerPosition: 'LEVANTADOR',
+        playerNumber: '12',
+        playerImage: '/assets/players/gela/Jay.png',
+      },
+      {
+        playerName: 'Fúlvio',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '7',
+        playerImage: '/assets/players/gela/Fúlvio.png',
+      },
+      {
+        playerName: 'Gabriel',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '5',
+        playerImage: '/assets/players/gela/Gabriel.png',
+      },
+      {
+        playerName: 'Gustavo',
+        playerPosition: 'PONTEIRO',
+        playerNumber: '8',
+        playerImage: '/assets/players/gela/Gustavo.png',
+      },
+    ],
+    libero: {
+      playerName: 'Yuri',
+      playerPosition: 'LIBERO',
+      playerNumber: '3',
+      playerImage: '/assets/players/gela/Yuri.png',
+      substitutes: [4],
+    },
   },
   {
     id: 6,
@@ -471,7 +641,7 @@ export function TeamDetails() {
                       <button onClick={() => setActiveStatsContent('default')}>
                         <CaretLeft size={32} />
                       </button>
-                      <h3>Destaques do Time</h3>
+                      <h3 onClick={() => setActiveStatsContent('default')}>Destaques do Time</h3>
                     </div>
                     <ul>
                       <li>
@@ -513,7 +683,7 @@ export function TeamDetails() {
                       <button onClick={() => setActiveStatsContent('default')}>
                         <CaretLeft size={32} />
                       </button>
-                      <h3>Últimos Jogos</h3>
+                      <h3 onClick={() => setActiveStatsContent('default')}>Últimos Jogos</h3>
                     </div>
                     <ul>
                       <li>

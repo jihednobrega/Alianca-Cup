@@ -3,7 +3,7 @@ import { TeamsContainer, TeamCard } from './styles'
 import Aliança from '../../assets/teams/Aliança Volei.png'
 import SanMarino from '../../assets/teams/San Marino.png'
 import Up from '../../assets/teams/Volei Up.png'
-import VoleiNatal from '../../assets/teams/Volei Natal.png'
+import Neopolis from '/assets/teams/Neopolis Volei.png'
 import GelaVolei from '../../assets/teams/Gela Volei.png'
 import União from '../../assets/teams/Volei União.png'
 
@@ -26,8 +26,8 @@ const teams = [
   },
   {
     id: 4,
-    name: 'Volei Natal',
-    logo: VoleiNatal,
+    name: 'Neópolis',
+    logo: Neopolis,
   },
   {
     id: 5,

@@ -17,17 +17,17 @@ export function Home() {
       </HeroSection>
 
       <HighlightsSection>
-        <HighlightCard onClick={() => navigate('/calendar')}>
-          <h2>Próximos Jogos</h2>
-          <p>2º Rodada - Sábado (09/03), 16h</p>
-        </HighlightCard>
         <HighlightCard onClick={() => navigate('/ranking')}>
           <h2>Classificação</h2>
           <p>Confira a tabela de classificação após a 1º rodada.</p>
         </HighlightCard>
+        <HighlightCard onClick={() => navigate('/calendar')}>
+          <h2>Próximos Jogos</h2>
+          <p>2º Rodada - Sábado (09/03), 16h</p>
+        </HighlightCard>
         <HighlightCard onClick={() => navigate('/rules')}>
           <div>
-            <h2>Regulamento do Campeonato</h2>
+            <h2>Regulamento</h2>
             <p>Consulte as regras e formato do campeonato.</p>
             {/* <button onClick={() => window.open('/path/to/regulamento.pdf', '_blank')}>Visualizar Regulamento</button> */}
           </div>
@@ -35,7 +35,7 @@ export function Home() {
         <HighlightCard>
           <h2>Contato</h2>
           <p>
-            <p>Algum problema ou feedback? Nos avise!</p>
+            <p>Algum problema ou feedback?</p>
           </p>
           <ul>
             <li>

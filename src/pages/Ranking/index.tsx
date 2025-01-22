@@ -3,7 +3,7 @@ import { RankingContainer, RankingList, History, Legend } from './styles'
 import Aliança from '../../assets/teams/Aliança Volei.png'
 import SanMarino from '../../assets/teams/San Marino.png'
 import Up from '../../assets/teams/Volei Up.png'
-import VoleiNatal from '../../assets/teams/Volei Natal.png'
+import Neopolis from '/assets/teams/Neopolis Volei.png'
 import GelaVolei from '../../assets/teams/Gela Volei.png'
 import União from '../../assets/teams/Volei União.png'
 
@@ -63,9 +63,9 @@ export function Ranking() {
               <tr>
                 <td className="team">
                   <strong>6</strong>
-                  <img src={VoleiNatal} />
-                  <p className="nameOnMobile">VNA</p>
-                  <p className="nameOnDesk">Vôlei Natal</p>
+                  <img src={Neopolis} />
+                  <p className="nameOnMobile">NEO</p>
+                  <p className="nameOnDesk">Neópolis</p>
                 </td>
               </tr>
             </tbody>

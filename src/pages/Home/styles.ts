@@ -120,9 +120,9 @@ export const HighlightCard = styled.div`
 
   ul {
     display: flex;
-    gap: 1rem;
-    justify-content: space-evenly;
-    margin-top: 1rem;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.5rem;
 
     li {
       display: flex;
@@ -144,6 +144,7 @@ export const HighlightCard = styled.div`
   h2 {
     margin-bottom: 1rem;
     color: ${(props) => props.theme['blue-300']};
+    font-size: 1.4rem;
   }
 
   p {
@@ -161,6 +162,10 @@ export const HighlightCard = styled.div`
       p,
       strong {
         color: ${(props) => props.theme['gray-900']};
+      }
+
+      h2 {
+        font-size: 1.5rem;
       }
 
       svg {

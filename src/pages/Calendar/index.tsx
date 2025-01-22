@@ -4,7 +4,7 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 import Aliança from '../../assets/teams/Aliança Volei.png'
 import SanMarino from '../../assets/teams/San Marino.png'
 import Up from '../../assets/teams/Volei Up.png'
-import VoleiNatal from '../../assets/teams/Volei Natal.png'
+import Neopolis from '/assets/teams/Neopolis Volei.png'
 import GelaVolei from '../../assets/teams/Gela Volei.png'
 import União from '../../assets/teams/Volei União.png'
 
@@ -61,8 +61,8 @@ const calendarData: {
             time: '20:00',
             teamA: 'Vôlei Up',
             teamAImage: Up,
-            teamB: 'Vôlei Natal',
-            teamBImage: VoleiNatal,
+            teamB: 'Neópolis',
+            teamBImage: Neopolis,
             score: { teamA: 2, teamB: 1 },
             sets: ['25-21', '23-25', '15-10'],
           },
@@ -83,8 +83,8 @@ const calendarData: {
             time: '16:00',
             teamA: 'Gela Vôlei',
             teamAImage: GelaVolei,
-            teamB: 'Vôlei Natal',
-            teamBImage: VoleiNatal,
+            teamB: 'Neópolis',
+            teamBImage: Neopolis,
           },
           {
             id: 2,
@@ -120,8 +120,8 @@ const calendarData: {
           {
             id: 2,
             time: '18:00',
-            teamA: 'Vôlei Natal',
-            teamAImage: VoleiNatal,
+            teamA: 'Neópolis',
+            teamAImage: Neopolis,
             teamB: 'San Marino',
             teamBImage: SanMarino,
           },
@@ -150,8 +150,8 @@ const calendarData: {
             time: '16:00',
             teamA: 'União',
             teamAImage: União,
-            teamB: 'Vôlei Natal',
-            teamBImage: VoleiNatal,
+            teamB: 'Neópolis',
+            teamBImage: Neopolis,
           },
           {
             id: 2,
@@ -197,8 +197,8 @@ const calendarData: {
             time: '20:00',
             teamA: 'Aliança',
             teamAImage: Aliança,
-            teamB: 'Vôlei Natal',
-            teamBImage: VoleiNatal,
+            teamB: 'Neópolis',
+            teamBImage: Neopolis,
           },
         ],
       },
