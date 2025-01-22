@@ -185,14 +185,14 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
   left: 0;
   width: 100%;
   transition: height 0.5s ease;
-  height: ${(props) => (props.isOpen ? '50vh' : '56px')};
+  height: ${(props) => (props.isOpen ? '50vh' : '3.5rem')};
   background-color: ${(props) => props.theme['gray-800']};
 
   .buttons {
     display: flex;
     justify-content: space-between;
     gap: 2px;
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
 
     button {
       flex: 1;
@@ -228,7 +228,11 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
     grid-template-columns: repeat(3, max-content);
     gap: 0.9rem;
     justify-content: space-evenly;
-    margin-top: auto;
+    /* margin-top: auto; */
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
 
     &:not(.open) {
       padding: 0;
