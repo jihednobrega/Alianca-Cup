@@ -3,12 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { TeamDetailsContainer, Header, Main, GuidesContainer, MainSquad, LiberoButton } from './styles'
 import { ArrowsClockwise, CaretDown, CaretLeft, CaretUp } from '@phosphor-icons/react'
 
-import Aliança from '../../assets/teams/Aliança Volei.png'
-import SanMarino from '../../assets/teams/San Marino.png'
-import Up from '../../assets/teams/Volei Up.png'
-import VoleiNatal from '../../assets/teams/Volei Natal.png'
-import GelaVolei from '../../assets/teams/Gela Volei.png'
-import União from '../../assets/teams/Volei União.png'
+import Aliança from '/assets/teams/Aliança Volei.png'
+import SanMarino from '/assets/teams/San Marino.png'
+import Up from '/assets/teams/Volei Up.png'
+import VoleiNatal from '/assets/teams/Volei Natal.png'
+import GelaVolei from '/assets/teams/Gela Volei.png'
+import União from '/assets/teams/Volei União.png'
 
 import { PlayerCard } from '../../components/PlayerCard'
 
@@ -44,86 +44,86 @@ const teams: Team[] = [
         playerName: 'João',
         playerPosition: 'OPOSTO',
         playerNumber: '9',
-        playerImage: '../../src/assets/players/aliança/João.png',
+        playerImage: '/assets/players/aliança/João.png',
       },
       {
         playerName: 'Igor',
         playerPosition: 'CENTRAL',
         playerNumber: '14',
-        playerImage: '../../src/assets/players/aliança/Igor.png',
+        playerImage: '/assets/players/aliança/Igor.png',
       },
       {
         playerName: 'Matheus',
         playerPosition: 'PONTEIRO',
         playerNumber: '5',
-        playerImage: '../../src/assets/players/aliança/Matheus.png',
+        playerImage: '/assets/players/aliança/Matheus.png',
       },
       {
         playerName: 'Láu',
         playerPosition: 'PONTEIRO',
         playerNumber: '1',
-        playerImage: '../../src/assets/players/aliança/Lau.png',
+        playerImage: '/assets/players/aliança/Lau.png',
         isTeamCaptain: true,
       },
       {
         playerName: 'Kildere',
         playerPosition: 'CENTRAL',
         playerNumber: '10',
-        playerImage: '../../src/assets/players/aliança/Kildere.png',
+        playerImage: '/assets/players/aliança/Kildere.png',
       },
       {
         playerName: 'Cláudio',
         playerPosition: 'LEVANTADOR',
         playerNumber: '26',
-        playerImage: '../../src/assets/players/aliança/Claudio.png',
+        playerImage: '/assets/players/aliança/Claudio.png',
       },
       {
         playerName: 'Gabriel M.',
         playerPosition: 'LEVANTADOR',
         playerNumber: '7',
-        playerImage: '../../src/assets/players/aliança/Gabriel Motta.png',
+        playerImage: '/assets/players/aliança/Gabriel Motta.png',
       },
       {
         playerName: 'Victor',
         playerPosition: 'PONTEIRO',
         playerNumber: '19',
-        playerImage: '../../src/assets/players/aliança/Victor.png',
+        playerImage: '/assets/players/aliança/Victor.png',
       },
       {
         playerName: 'Jihed',
         playerPosition: 'PONTEIRO',
         playerNumber: '21',
-        playerImage: '../../src/assets/players/aliança/Jihed.png',
+        playerImage: '/assets/players/aliança/Jihed.png',
       },
       {
         playerName: 'Greg',
         playerPosition: 'CENTRAL',
         playerNumber: '22',
-        playerImage: '../../src/assets/players/aliança/Greg.png',
+        playerImage: '/assets/players/aliança/Greg.png',
       },
       {
         playerName: 'Allyson',
         playerPosition: 'PONTEIRO',
         playerNumber: '3',
-        playerImage: '../../src/assets/players/aliança/Allyson.png',
+        playerImage: '/assets/players/aliança/Allyson.png',
       },
       {
         playerName: 'Gabriel',
         playerPosition: 'PONTEIRO',
         playerNumber: '11',
-        playerImage: '../../src/assets/players/aliança/Gabriel Macedo.png',
+        playerImage: '/assets/players/aliança/Gabriel Macedo.png',
       },
       {
         playerName: 'Kenzo',
         playerPosition: 'OPOSTO',
         playerNumber: '12',
-        playerImage: '../../src/assets/players/aliança/Kenzo.png',
+        playerImage: '/assets/players/aliança/Kenzo.png',
       },
       {
         playerName: 'Hugo',
         playerPosition: 'CENTRAL',
         playerNumber: '6',
-        playerImage: '../../src/assets/players/aliança/Hugo.png',
+        playerImage: '/assets/players/aliança/Hugo.png',
       },
     ],
   },
@@ -137,45 +137,45 @@ const teams: Team[] = [
         playerName: 'Lucas',
         playerPosition: 'OPOSTO',
         playerNumber: '11',
-        playerImage: '../../src/assets/players/san marino/Lucas.png',
+        playerImage: '/assets/players/san marino/Lucas.png',
         isTeamCaptain: true,
       },
       {
         playerName: 'Sampaio',
         playerPosition: 'CENTRAL',
         playerNumber: '6',
-        playerImage: '../../src/assets/players/san marino/Vitor.png',
+        playerImage: '/assets/players/san marino/Vitor.png',
       },
       {
         playerName: 'Solberg',
         playerPosition: 'PONTEIRO',
         playerNumber: '31',
-        playerImage: '../../src/assets/players/san marino/Solberg.png',
+        playerImage: '/assets/players/san marino/Solberg.png',
       },
       {
         playerName: 'Aldo',
         playerPosition: 'PONTEIRO',
         playerNumber: '2',
-        playerImage: '../../src/assets/players/san marino/Aldo.png',
+        playerImage: '/assets/players/san marino/Aldo.png',
       },
       {
         playerName: 'Kezz',
         playerPosition: 'CENTRAL',
         playerNumber: '8',
-        playerImage: '../../src/assets/players/san marino/Kezz.png',
+        playerImage: '/assets/players/san marino/Kezz.png',
       },
       {
         playerName: 'Henze',
         playerPosition: 'LEVANTADOR',
         playerNumber: '5',
-        playerImage: '../../src/assets/players/san marino/Henze.png',
+        playerImage: '/assets/players/san marino/Henze.png',
       },
     ],
     libero: {
       playerName: 'Jadson',
       playerPosition: 'LIBERO',
       playerNumber: '25',
-      playerImage: '../../src/assets/players/san marino/Jadson.png',
+      playerImage: '/assets/players/san marino/Jadson.png',
       substitutes: [4],
     },
   },
@@ -210,57 +210,57 @@ const teams: Team[] = [
         playerName: 'Igor',
         playerPosition: 'OPOSTO',
         playerNumber: '7',
-        playerImage: '../../src/assets/players/união/Igor.png',
+        playerImage: '/assets/players/união/Igor.png',
         isTeamCaptain: true,
       },
       {
         playerName: 'Salgado',
         playerPosition: 'CENTRAL',
         playerNumber: '8',
-        playerImage: '../../src/assets/players/união/Salgado.png',
+        playerImage: '/assets/players/união/Salgado.png',
       },
       {
         playerName: 'Mateus',
         playerPosition: 'PONTEIRO',
         playerNumber: '13',
-        playerImage: '../../src/assets/players/união/Mateus.png',
+        playerImage: '/assets/players/união/Mateus.png',
       },
       {
         playerName: 'Pedro Igor',
         playerPosition: 'PONTEIRO',
         playerNumber: '15',
-        playerImage: '../../src/assets/players/união/Pedro Igor.png',
+        playerImage: '/assets/players/união/Pedro Igor.png',
       },
       {
         playerName: 'L. Eduardo',
         playerPosition: 'CENTRAL',
         playerNumber: '10',
-        playerImage: '../../src/assets/players/união/Luiz Eduardo.png',
+        playerImage: '/assets/players/união/Luiz Eduardo.png',
       },
       {
         playerName: 'Gabriel',
         playerPosition: 'LEVANTADOR',
         playerNumber: '2',
-        playerImage: '../../src/assets/players/união/Gabriel.png',
+        playerImage: '/assets/players/união/Gabriel.png',
       },
       {
         playerName: 'Murillo',
         playerPosition: 'LEVANTADOR',
         playerNumber: '12',
-        playerImage: '../../src/assets/players/união/Murillo.png',
+        playerImage: '/assets/players/união/Murillo.png',
       },
       {
         playerName: 'Luiz Felipe',
         playerPosition: 'OPOSTO',
         playerNumber: '11',
-        playerImage: '../../src/assets/players/união/Luiz Felipe.png',
+        playerImage: '/assets/players/união/Luiz Felipe.png',
       },
     ],
     libero: {
       playerName: 'Leonardo',
       playerPosition: 'LIBERO',
       playerNumber: '6',
-      playerImage: '../../src/assets/players/união/Leonardo.png',
+      playerImage: '/assets/players/união/Leonardo.png',
       substitutes: [4],
     },
   },

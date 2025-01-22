@@ -10,17 +10,17 @@ export const HomeContainer = styled.main`
     padding-block: 1rem;
     font-size: 0.75rem;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
 
     color: ${(props) => props.theme['gray-400']};
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
 
     p.copyright {
       padding-inline: 1rem;

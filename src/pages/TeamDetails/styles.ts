@@ -144,12 +144,12 @@ export const Main = styled.div`
   background-size: cover;
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    background: url('/src/assets/volleyball-court-desk.jpg') no-repeat center 100%;
+    background: url('/assets/volleyball-court-desk.jpg') no-repeat center 100%;
     background-size: cover;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    background: url('/src/assets/volleyball-court-desk.jpg') no-repeat center 75%;
+    background: url('/assets/volleyball-court-desk.jpg') no-repeat center 75%;
     background-size: cover;
     grid-area: squad;
     border-radius: 0.5rem;
