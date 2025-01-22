@@ -192,7 +192,7 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
     display: flex;
     justify-content: space-between;
     gap: 2px;
-    padding-bottom: 6rem;
+    padding-bottom: 6.5rem;
 
     button {
       flex: 1;
@@ -218,11 +218,11 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
   }
 
   .subsContent {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 6.5rem;
     overflow-y: auto;
     background-color: ${(props) => props.theme['gray-800']};
     color: ${(props) => props.theme['gray-100']};
-    height: calc(50vh - 56px);
+    height: calc(50vh - 3.5rem);
 
     display: grid;
     grid-template-columns: repeat(3, max-content);
@@ -263,11 +263,15 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
   }
 
   .statsContent {
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 6.5rem;
     overflow-y: auto;
     background-color: ${(props) => props.theme['gray-800']};
     color: ${(props) => props.theme['gray-100']};
-    height: calc(50vh - 56px);
+    height: calc(50vh - 3.5rem);
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    right: 0;
 
     .stats {
       .statsHeader {
@@ -400,7 +404,7 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    height: ${(props) => (props.isOpen ? '30vh' : '56px')};
+    height: ${(props) => (props.isOpen ? '30vh' : '3.5rem')};
     display: none;
   }
 `
