@@ -1,291 +1,167 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CalendarContainer, MonthSection, RoundHeader, GameCard } from './styles'
 import { CaretLeft, CaretRight } from '@phosphor-icons/react'
-import Aliança from '../../assets/teams/Aliança Volei.png'
-import SanMarino from '../../assets/teams/San Marino.png'
-import Up from '../../assets/teams/Volei Up.png'
-import Neopolis from '/assets/teams/Neopolis Volei.png'
-import GelaVolei from '../../assets/teams/Gela Volei.png'
-import União from '../../assets/teams/Volei União.png'
 
-type Game = {
+interface Team {
   id: number
+  name: string
+  logo: string
+}
+
+interface Game {
+  id: number
+  teamA: number
+  teamB: number
   time: string
-  teamA: string
-  teamAImage?: string
-  teamB: string
-  teamBImage?: string
   score?: { teamA: number; teamB: number }
   sets?: string[]
 }
 
-const calendarData: {
+interface Round {
+  round: number | string
+  date: string
+  games: Game[]
+}
+
+interface GroupedMonth {
   month: string
-  rounds: {
-    id: number
-    name: string
-    date: string
-    games: Game[]
-  }[]
-}[] = [
-  {
-    month: 'Fevereiro',
-    rounds: [
-      {
-        id: 1,
-        name: '1ª Rodada',
-        date: '16/02/2024',
-        games: [
-          {
-            id: 1,
-            time: '16:00',
-            teamA: 'Aliança',
-            teamAImage: Aliança,
-            teamB: 'San Marino',
-            teamBImage: SanMarino,
-            score: { teamA: 2, teamB: 0 },
-            sets: ['25-20', '25-22'],
-          },
-          {
-            id: 2,
-            time: '18:00',
-            teamA: 'União',
-            teamAImage: União,
-            teamB: 'Gela Vôlei',
-            teamBImage: GelaVolei,
-            score: { teamA: 1, teamB: 2 },
-            sets: ['25-20', '19-25', '13-15'],
-          },
-          {
-            id: 3,
-            time: '20:00',
-            teamA: 'Vôlei Up',
-            teamAImage: Up,
-            teamB: 'Neópolis',
-            teamBImage: Neopolis,
-            score: { teamA: 2, teamB: 1 },
-            sets: ['25-21', '23-25', '15-10'],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    month: 'Março',
-    rounds: [
-      {
-        id: 2,
-        name: '2ª Rodada',
-        date: '09/03/2024',
-        games: [
-          {
-            id: 1,
-            time: '16:00',
-            teamA: 'Gela Vôlei',
-            teamAImage: GelaVolei,
-            teamB: 'Neópolis',
-            teamBImage: Neopolis,
-          },
-          {
-            id: 2,
-            time: '18:00',
-            teamA: 'Vôlei Up',
-            teamAImage: Up,
-            teamB: 'San Marino',
-            teamBImage: SanMarino,
-          },
-          {
-            id: 3,
-            time: '20:00',
-            teamA: 'Aliança',
-            teamAImage: Aliança,
-            teamB: 'União',
-            teamBImage: União,
-          },
-        ],
-      },
-      {
-        id: 3,
-        name: '3ª Rodada',
-        date: '23/03/2024',
-        games: [
-          {
-            id: 1,
-            time: '16:00',
-            teamA: 'Aliança',
-            teamAImage: Aliança,
-            teamB: 'Gela Vôlei',
-            teamBImage: GelaVolei,
-          },
-          {
-            id: 2,
-            time: '18:00',
-            teamA: 'Neópolis',
-            teamAImage: Neopolis,
-            teamB: 'San Marino',
-            teamBImage: SanMarino,
-          },
-          {
-            id: 3,
-            time: '20:00',
-            teamA: 'Vôlei Up',
-            teamAImage: Up,
-            teamB: 'União',
-            teamBImage: União,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    month: 'Abril',
-    rounds: [
-      {
-        id: 4,
-        name: '4ª Rodada',
-        date: '06/04/2024',
-        games: [
-          {
-            id: 1,
-            time: '16:00',
-            teamA: 'União',
-            teamAImage: União,
-            teamB: 'Neópolis',
-            teamBImage: Neopolis,
-          },
-          {
-            id: 2,
-            time: '18:00',
-            teamA: 'Aliança',
-            teamAImage: Aliança,
-            teamB: 'Vôlei Up',
-            teamBImage: Up,
-          },
-          {
-            id: 3,
-            time: '20:00',
-            teamA: 'San Marino',
-            teamAImage: SanMarino,
-            teamB: 'Gela Vôlei',
-            teamBImage: GelaVolei,
-          },
-        ],
-      },
-      {
-        id: 5,
-        name: '5ª Rodada',
-        date: '20/04/2024',
-        games: [
-          {
-            id: 1,
-            time: '16:00',
-            teamA: 'Gela Vôlei',
-            teamAImage: GelaVolei,
-            teamB: 'Vôlei Up',
-            teamBImage: Up,
-          },
-          {
-            id: 2,
-            time: '18:00',
-            teamA: 'União',
-            teamAImage: União,
-            teamB: 'San Marino',
-            teamBImage: SanMarino,
-          },
-          {
-            id: 3,
-            time: '20:00',
-            teamA: 'Aliança',
-            teamAImage: Aliança,
-            teamB: 'Neópolis',
-            teamBImage: Neopolis,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    month: 'Maio',
-    rounds: [
-      {
-        id: 6,
-        date: '04/05/2024',
-        name: 'Disputa de 3º',
-        games: [{ id: 1, time: '16:00', teamA: '3º Fase de grupos', teamB: '4º Fase de grupos' }],
-      },
-      {
-        id: 7,
-        date: '04/05/2024',
-        name: 'Final',
-        games: [{ id: 1, time: '18:00', teamA: '1º Fase de grupos', teamB: '2º Fase de grupos' }],
-      },
-    ],
-  },
-]
+  rounds: Round[]
+}
 
 export function Calendar() {
+  const [teams, setTeams] = useState<Team[]>([])
+  const [matches, setMatches] = useState<GroupedMonth[]>([])
   const [selectedMonthIndex, setSelectedMonthIndex] = useState(0)
 
-  const currentMonth = calendarData[selectedMonthIndex]
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const teamsData = await fetch('/data/teams.json').then((res) => res.json())
+        const matchesData = await fetch('/data/matches.json').then((res) => res.json())
+
+        setTeams(teamsData)
+
+        const groupedMonths: GroupedMonth[] = matchesData.rounds.reduce((acc: GroupedMonth[], round: Round) => {
+          const matchDate = new Date(round.date)
+          const monthName = matchDate.toLocaleString('pt-BR', { month: 'long' })
+          const formattedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1)
+
+          let month = acc.find((m) => m.month === formattedMonth)
+          if (!month) {
+            month = { month: formattedMonth, rounds: [] }
+            acc.push(month)
+          }
+
+          month.rounds.push(round)
+          return acc
+        }, [])
+
+        setMatches(groupedMonths)
+
+        let nextMonthIndex = 0
+        let foundNextRound = false
+
+        for (let i = 0; i < groupedMonths.length; i++) {
+          const month = groupedMonths[i]
+          for (const round of month.rounds) {
+            if (round.games.some((game: Game) => !game.score || !game.sets?.length)) {
+              nextMonthIndex = i
+              foundNextRound = true
+              break
+            }
+          }
+          if (foundNextRound) break
+        }
+
+        setSelectedMonthIndex(nextMonthIndex)
+      } catch (error) {
+        console.error('Erro ao carregar os dados:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   const handlePreviousMonth = () => {
     if (selectedMonthIndex > 0) setSelectedMonthIndex((prev) => prev - 1)
   }
 
   const handleNextMonth = () => {
-    if (selectedMonthIndex < calendarData.length - 1) setSelectedMonthIndex((prev) => prev + 1)
+    if (selectedMonthIndex < matches.length - 1) setSelectedMonthIndex((prev) => prev + 1)
   }
+
+  function getTeamById(teamId: number): Team | undefined {
+    return teams.find((team) => team.id === teamId)
+  }
+
+  const currentMonth = matches[selectedMonthIndex]
 
   return (
     <CalendarContainer>
-      <RoundHeader>
-        <button onClick={handlePreviousMonth} disabled={selectedMonthIndex === 0}>
-          <CaretLeft size={24} weight="bold" />
-        </button>
-        <h1>{currentMonth.month}</h1>
-        <button onClick={handleNextMonth} disabled={selectedMonthIndex === calendarData.length - 1}>
-          <CaretRight size={24} weight="bold" />
-        </button>
-      </RoundHeader>
+      {currentMonth && (
+        <>
+          <RoundHeader>
+            <button onClick={handlePreviousMonth} disabled={selectedMonthIndex === 0}>
+              <CaretLeft size={24} weight="bold" />
+            </button>
+            <h1>{currentMonth.month}</h1>
+            <button onClick={handleNextMonth} disabled={selectedMonthIndex === matches.length - 1}>
+              <CaretRight size={24} weight="bold" />
+            </button>
+          </RoundHeader>
 
-      {currentMonth.rounds.map((round) => (
-        <MonthSection key={round.id}>
-          <div className="games-list-wrapper">
-            <h2>
-              {round.name} ({round.date})
-            </h2>
-            <div className="games-list">
-              {round.games.map((game) => (
-                <GameCard key={game.id}>
-                  <div>
-                    <span className="localAndTime">Edgar Barbosa - {game.time}</span>
-                  </div>
-                  <div className="matchResult">
-                    <div className="team">
-                      <img src={game.teamAImage} />
-                      <p>{game.teamA}</p>
-                    </div>
-                    {game.score && game.sets && <p>{game.score.teamA}</p>}
-                    {game.score && game.sets && <p className="versus">x</p>}
-                    {!(game.score || game.sets) && <p className="versus">vs</p>}
+          {currentMonth.rounds.map((round: Round) => (
+            <MonthSection key={round.round}>
+              <div className="games-list-wrapper">
+                <h2>
+                  {typeof round.round === 'string' ? round.round : `${round.round}ª Rodada`} (
+                  {new Date(`${round.date}T00:00:00`).toLocaleDateString('pt-BR')})
+                </h2>
+                <div className="games-list">
+                  {round.games.map((game: Game) => {
+                    const teamA =
+                      typeof game.teamA === 'string' ? { name: game.teamA, logo: '' } : getTeamById(game.teamA)
+                    const teamB =
+                      typeof game.teamB === 'string' ? { name: game.teamB, logo: '' } : getTeamById(game.teamB)
 
-                    {game.score && game.sets && <p>{game.score.teamB}</p>}
-                    <div className="team">
-                      <img src={game.teamBImage} />
-                      <p>{game.teamB}</p>
-                    </div>
-                  </div>
-                  {game.score && game.sets && (
-                    <div className="score">
-                      <p>{game.sets.join(' | ')}</p>
-                    </div>
-                  )}
-                </GameCard>
-              ))}
-            </div>
-          </div>
-        </MonthSection>
-      ))}
+                    return (
+                      <GameCard key={game.id}>
+                        <div>
+                          <span className="localAndTime">Edgar Barbosa - {game.time || 'Horário indefinido'}</span>
+                        </div>
+                        <div className="matchResult">
+                          <div className="team">
+                            {teamA?.logo && <img src={teamA.logo} alt={teamA.name} />}
+                            <p>{teamA?.name || 'Indefinido'}</p>
+                          </div>
+                          {game.score?.teamA !== undefined && game.score?.teamB !== undefined && game.sets?.length ? (
+                            <>
+                              <p>{game.score.teamA}</p>
+                              <p className="versus">x</p>
+                              <p>{game.score.teamB}</p>
+                            </>
+                          ) : (
+                            <p className="versus">vs</p>
+                          )}
+                          <div className="team">
+                            {teamB?.logo && <img src={teamB.logo} alt={teamB.name} />}
+                            <p>{teamB?.name || 'Indefinido'}</p>
+                          </div>
+                        </div>
+                        {game.sets && game.sets.length > 0 && (
+                          <div className="score">
+                            <p>{game.sets.join(' | ')}</p>
+                          </div>
+                        )}
+                      </GameCard>
+                    )
+                  })}
+                </div>
+              </div>
+            </MonthSection>
+          ))}
+        </>
+      )}
     </CalendarContainer>
   )
 }

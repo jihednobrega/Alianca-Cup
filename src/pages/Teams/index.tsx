@@ -1,47 +1,23 @@
 import { Link } from 'react-router-dom'
 import { TeamsContainer, TeamCard } from './styles'
-import Aliança from '../../assets/teams/Aliança Volei.png'
-import SanMarino from '../../assets/teams/San Marino.png'
-import Up from '../../assets/teams/Volei Up.png'
-import Neopolis from '/assets/teams/Neopolis Volei.png'
-import GelaVolei from '../../assets/teams/Gela Volei.png'
-import União from '../../assets/teams/Volei União.png'
-
-// Dados simulados (você pode substituir por uma API ou JSON)
-const teams = [
-  {
-    id: 1,
-    name: 'Aliança Volei',
-    logo: Aliança,
-  },
-  {
-    id: 2,
-    name: 'San Marino',
-    logo: SanMarino,
-  },
-  {
-    id: 3,
-    name: 'Volei Up',
-    logo: Up,
-  },
-  {
-    id: 4,
-    name: 'Neópolis',
-    logo: Neopolis,
-  },
-  {
-    id: 5,
-    name: 'Gela Volei',
-    logo: GelaVolei,
-  },
-  {
-    id: 6,
-    name: 'Volei União',
-    logo: União,
-  },
-]
+import { useEffect, useState } from 'react'
 
 export function Teams() {
+  const [teams, setTeams] = useState<any[]>([])
+
+  useEffect(() => {
+    async function fetchTeams() {
+      try {
+        const response = await fetch('/data/teams.json')
+        const data = await response.json()
+        setTeams(data)
+      } catch (error) {
+        console.error('Erro ao carregar os dados das equipes:', error)
+      }
+    }
+
+    fetchTeams()
+  }, [])
   return (
     <TeamsContainer>
       <h1>Equipes Participantes</h1>

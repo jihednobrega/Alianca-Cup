@@ -1,0 +1,480 @@
+[
+  {
+    "id": 1,
+    "name": "Aliança",
+    "shortName": "ALI",
+    "logo": "/assets/teams/Aliança Volei.png",
+    "colorPrimary": "#0c4a6e",
+    "stats": [
+      {
+        "points": 21,
+        "games": 7,
+        "wins": 7,
+        "losses": 0,
+        "setsWon": 14,
+        "setsLost": 0,
+        "pointsScored": 355,
+        "pointsConceded": 213
+      }
+    ],
+    "players": [
+      {
+        "playerName": "João",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/aliança/João.png"
+      },
+      {
+        "playerName": "Igor",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "14",
+        "playerImage": "/assets/players/aliança/Igor.png"
+      },
+      {
+        "playerName": "Matheus",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "5",
+        "playerImage": "/assets/players/aliança/Matheus.png"
+      },
+      {
+        "playerName": "Láu",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "1",
+        "playerImage": "/assets/players/aliança/Lau.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerName": "Kildere",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/aliança/Kildere.png"
+      },
+      {
+        "playerName": "Cláudio",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "26",
+        "playerImage": "/assets/players/aliança/Claudio.png"
+      },
+      {
+        "playerName": "Gabriel M.",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/aliança/Gabriel Motta.png"
+      },
+      {
+        "playerName": "Victor",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "19",
+        "playerImage": "/assets/players/aliança/Victor.png"
+      },
+      {
+        "playerName": "Jihed",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "21",
+        "playerImage": "/assets/players/aliança/Jihed.png"
+      },
+      {
+        "playerName": "Greg",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "22",
+        "playerImage": "/assets/players/aliança/Greg.png"
+      },
+      {
+        "playerName": "Allyson",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "3",
+        "playerImage": "/assets/players/aliança/Allyson.png"
+      },
+      {
+        "playerName": "Gabriel",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/aliança/Gabriel Macedo.png"
+      },
+      {
+        "playerName": "Kenzo",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "12",
+        "playerImage": "/assets/players/aliança/Kenzo.png"
+      },
+      {
+        "playerName": "Hugo",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "6",
+        "playerImage": "/assets/players/aliança/Hugo.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "San Marino",
+    "shortName": "SAN",
+    "logo": "/assets/teams/San Marino.png",
+    "colorPrimary": "#4c1d95",
+    "stats": [
+      {
+        "points": 14,
+        "games": 7,
+        "wins": 4,
+        "losses": 3,
+        "setsWon": 10,
+        "setsLost": 8,
+        "pointsScored": 315,
+        "pointsConceded": 303
+      }
+    ],
+    "players": [
+      {
+        "playerName": "Lucas",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/san marino/Lucas.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerName": "Sampaio",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "6",
+        "playerImage": "/assets/players/san marino/Vitor.png"
+      },
+      {
+        "playerName": "Solberg",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "31",
+        "playerImage": "/assets/players/san marino/Solberg.png"
+      },
+      {
+        "playerName": "Aldo",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "2",
+        "playerImage": "/assets/players/san marino/Aldo.png"
+      },
+      {
+        "playerName": "Kezz",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/san marino/Kezz.png"
+      },
+      {
+        "playerName": "Henze",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "5",
+        "playerImage": "/assets/players/san marino/Henze.png"
+      }
+    ],
+    "libero": {
+      "playerName": "Jadson",
+      "playerPosition": "LIBERO",
+      "playerNumber": "25",
+      "playerImage": "/assets/players/san marino/Jadson.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Volei Up",
+    "shortName": "VUP",
+    "logo": "/assets/teams/Volei Up.png",
+    "colorPrimary": "#aa347d",
+    "stats": [
+      {
+        "points": 9,
+        "games": 7,
+        "wins": 3,
+        "losses": 4,
+        "setsWon": 6,
+        "setsLost": 9,
+        "pointsScored": 299,
+        "pointsConceded": 300
+      }
+    ],
+    "players": [
+      {
+        "playerName": "João",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/up/João.png"
+      },
+      {
+        "playerName": "Wheverton",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/up/Wheverton.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerName": "Eli",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "3",
+        "playerImage": "/assets/players/up/Eliziano.png"
+      },
+      {
+        "playerName": "Franklin",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "2",
+        "playerImage": "/assets/players/up/Franklin.png"
+      },
+      {
+        "playerName": "Harry",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/up/Harry.png"
+      },
+      {
+        "playerName": "Edu",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "83",
+        "playerImage": "/assets/players/up/Edu.png"
+      },
+      {
+        "playerName": "Rodrigo",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/up/Rodrigo.png"
+      },
+      {
+        "playerName": "Matheus",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/up/Matheus.png"
+      },
+      {
+        "playerName": "Sérgio",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "4",
+        "playerImage": "/assets/players/up/Sergio.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Neópolis",
+    "shortName": "NEO",
+    "logo": "/assets/teams/Neopolis Volei.png",
+    "colorPrimary": "#0369a1",
+    "stats": [
+      {
+        "points": 9,
+        "games": 7,
+        "wins": 2,
+        "losses": 5,
+        "setsWon": 5,
+        "setsLost": 10,
+        "pointsScored": 267,
+        "pointsConceded": 325
+      }
+    ],
+    "players": [
+      {
+        "playerName": "Adriel",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "21",
+        "playerImage": "/assets/players/neopolis/Adriel.png"
+      },
+      {
+        "playerName": "Amaro",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "13",
+        "playerImage": "/assets/players/neopolis/Amaro.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerName": "Jean",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/neopolis/Jean.png"
+      },
+      {
+        "playerName": "Ezequiel",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "12",
+        "playerImage": "/assets/players/neopolis/Ezequiel.png"
+      },
+      {
+        "playerName": "Hélio",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/neopolis/Hélio.png"
+      },
+      {
+        "playerName": "Luan",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "1",
+        "playerImage": "/assets/players/neopolis/Luan.png"
+      },
+      {
+        "playerName": "Mingau",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/neopolis/Mingau.png"
+      }
+    ],
+    "libero": {
+      "playerName": "Rafa",
+      "playerPosition": "LIBERO",
+      "playerNumber": "6",
+      "playerImage": "/assets/players/neopolis/Rafa.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Gela Volei",
+    "shortName": "GEL",
+    "logo": "/assets/teams/Gela Volei.png",
+    "colorPrimary": "#0c31a8",
+    "stats": [
+      {
+        "points": 11,
+        "games": 7,
+        "wins": 3,
+        "losses": 4,
+        "setsWon": 6,
+        "setsLost": 8,
+        "pointsScored": 313,
+        "pointsConceded": 313
+      }
+    ],
+    "players": [
+      {
+        "playerName": "Cabral",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "17",
+        "playerImage": "/assets/players/gela/Cabral.png"
+      },
+      {
+        "playerName": "Abbott",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/gela/Abbott.png"
+      },
+      {
+        "playerName": "Robson",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/gela/Robson.png"
+      },
+      {
+        "playerName": "Duda",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/gela/Duda.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerName": "Pedro P.",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "80",
+        "playerImage": "/assets/players/gela/Pedro Paulo.png"
+      },
+      {
+        "playerName": "Jay",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "12",
+        "playerImage": "/assets/players/gela/Jay.png"
+      },
+      {
+        "playerName": "Fúlvio",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/gela/Fúlvio.png"
+      },
+      {
+        "playerName": "Gabriel",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "5",
+        "playerImage": "/assets/players/gela/Gabriel.png"
+      },
+      {
+        "playerName": "Gustavo",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/gela/Gustavo.png"
+      }
+    ],
+    "libero": {
+      "playerName": "Yuri",
+      "playerPosition": "LIBERO",
+      "playerNumber": "3",
+      "playerImage": "/assets/players/gela/Yuri.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Volei União",
+    "shortName": "UNI",
+    "logo": "/assets/teams/Volei União.png",
+    "colorPrimary": "#14532d",
+    "stats": [
+      {
+        "points": 14,
+        "games": 7,
+        "wins": 3,
+        "losses": 4,
+        "setsWon": 8,
+        "setsLost": 10,
+        "pointsScored": 325,
+        "pointsConceded": 320
+      }
+    ],
+    "players": [
+      {
+        "playerName": "Igor",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/união/Igor.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerName": "Salgado",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/união/Salgado.png"
+      },
+      {
+        "playerName": "Mateus",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "13",
+        "playerImage": "/assets/players/união/Mateus.png"
+      },
+      {
+        "playerName": "Pedro Igor",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "15",
+        "playerImage": "/assets/players/união/Pedro Igor.png"
+      },
+      {
+        "playerName": "L. Eduardo",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/união/Luiz Eduardo.png"
+      },
+      {
+        "playerName": "Gabriel",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "2",
+        "playerImage": "/assets/players/união/Gabriel.png"
+      },
+      {
+        "playerName": "Murillo",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "12",
+        "playerImage": "/assets/players/união/Murillo.png"
+      },
+      {
+        "playerName": "Luiz Felipe",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/união/Luiz Felipe.png"
+      }
+    ],
+    "libero": {
+      "playerName": "Leonardo",
+      "playerPosition": "LIBERO",
+      "playerNumber": "6",
+      "playerImage": "/assets/players/união/Leonardo.png",
+      "substitutes": [4]
+    }
+  }
+]

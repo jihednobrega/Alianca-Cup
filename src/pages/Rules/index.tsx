@@ -114,14 +114,43 @@ export function Rules() {
               anteriores. No entanto, não poderão ser antecipados sem que ambas equipes estejam de acordo.
             </p>
             <p>
+              <strong>Tolerância</strong>: 10 minutos a partir do horário previsto para a partida.
+            </p>
+            <p>
               <strong>Local</strong>: Quadra do Edgar Barbosa.
             </p>
             <p>
               <strong>Datas</strong>: Jogos aos sábados e/ou domingos, conforme cronograma.
             </p>
+            <p>
+              <strong>Formato</strong>: As partidas serão realizadas em melhor de 3 sets (25 pontos, com vantagem de 2
+              pontos, exceto no quinto set, que será disputado até 15 pontos, com vantagem de 2 pontos), onde a equipe
+              que vencer 2 deles, sairá como vencedora.
+            </p>
 
-            <h2>Arbitragem e Taxas</h2>
-            <strong>Arbitragem:</strong>
+            <h2>Sistema de Pontuação</h2>
+            <ul>
+              <li>• Vitória por 2x0 = 3 pontos</li>
+              <li>• Vitória por 2x1 = 2 pontos</li>
+              <li>• Derrota por 2x1 = 1 ponto</li>
+              <li>• Derrota por 2x0 = 0 pontos</li>
+              <li>• W.O. = - 3 pontos</li>
+              <li>
+                • OBS: Em caso de W.O. a equipe presente será declarada vencedora por 2 sets a 0, com parciais de 25x0.
+                Caso ambas equipes não compareçam na rodada prevista, receberão 0 pontos.
+              </li>
+            </ul>
+
+            <h2>Critérios de Desempate</h2>
+            <ul>
+              <li>1 - Pontos</li>
+              <li>2 - Número de Vitórias</li>
+              <li>3 - Set Average</li>
+              <li>4 - Points Average</li>
+              <li>5 - Confronto Direto</li>
+            </ul>
+
+            <h2>Arbitragem</h2>
             <ul>
               <li>• R$ 30 por equipe por jogo.</li>
               <li>• A ser pago em até 48h antes do início de cada rodada, passivo de W.O.</li>

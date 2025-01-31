@@ -127,7 +127,8 @@ export const Header = styled.div`
     margin-bottom: 0;
     grid-area: header;
 
-    svg:hover {
+    svg:hover,
+    h1:hover {
       cursor: pointer;
     }
   }

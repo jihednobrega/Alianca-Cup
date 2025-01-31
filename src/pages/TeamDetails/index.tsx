@@ -1,16 +1,10 @@
-import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { TeamDetailsContainer, Header, Main, GuidesContainer, MainSquad, LiberoButton } from './styles'
-import { ArrowsClockwise, CaretDown, CaretLeft, CaretUp } from '@phosphor-icons/react'
-
-import Aliança from '/assets/teams/Aliança Volei.png'
-import SanMarino from '/assets/teams/San Marino.png'
-import Up from '/assets/teams/Volei Up.png'
-import Neopolis from '/assets/teams/Neopolis Volei.png'
-import GelaVolei from '/assets/teams/Gela Volei.png'
-import União from '/assets/teams/Volei União.png'
-
+import { useEffect, useRef, useState } from 'react'
 import { PlayerCard } from '../../components/PlayerCard'
+import { useParams, useNavigate } from 'react-router-dom'
+import { calculateTeamStats } from '../../utils/calculateTeamStats'
+import { ArrowsClockwise, CaretDown, CaretLeft, CaretUp } from '@phosphor-icons/react'
+import { TeamDetailsContainer, Header, Main, GuidesContainer, MainSquad, LiberoButton } from './styles'
+import { sortTeams } from '../../utils/sortTeams'
 
 type Player = {
   playerName: string
@@ -30,467 +24,87 @@ type Team = {
   logo: string
   colorPrimary: string
   players: (Player | string)[]
-  libero?: Libero // `libero` é opcional
+  libero?: Libero
 }
 
-const teams: Team[] = [
-  {
-    id: 1,
-    name: 'Aliança Volei',
-    logo: Aliança,
-    colorPrimary: '#0c4a6e',
-    players: [
-      {
-        playerName: 'João',
-        playerPosition: 'OPOSTO',
-        playerNumber: '9',
-        playerImage: '/assets/players/aliança/João.png',
-      },
-      {
-        playerName: 'Igor',
-        playerPosition: 'CENTRAL',
-        playerNumber: '14',
-        playerImage: '/assets/players/aliança/Igor.png',
-      },
-      {
-        playerName: 'Matheus',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '5',
-        playerImage: '/assets/players/aliança/Matheus.png',
-      },
-      {
-        playerName: 'Láu',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '1',
-        playerImage: '/assets/players/aliança/Lau.png',
-        isTeamCaptain: true,
-      },
-      {
-        playerName: 'Kildere',
-        playerPosition: 'CENTRAL',
-        playerNumber: '10',
-        playerImage: '/assets/players/aliança/Kildere.png',
-      },
-      {
-        playerName: 'Cláudio',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '26',
-        playerImage: '/assets/players/aliança/Claudio.png',
-      },
-      {
-        playerName: 'Gabriel M.',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '7',
-        playerImage: '/assets/players/aliança/Gabriel Motta.png',
-      },
-      {
-        playerName: 'Victor',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '19',
-        playerImage: '/assets/players/aliança/Victor.png',
-      },
-      {
-        playerName: 'Jihed',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '21',
-        playerImage: '/assets/players/aliança/Jihed.png',
-      },
-      {
-        playerName: 'Greg',
-        playerPosition: 'CENTRAL',
-        playerNumber: '22',
-        playerImage: '/assets/players/aliança/Greg.png',
-      },
-      {
-        playerName: 'Allyson',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '3',
-        playerImage: '/assets/players/aliança/Allyson.png',
-      },
-      {
-        playerName: 'Gabriel',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '11',
-        playerImage: '/assets/players/aliança/Gabriel Macedo.png',
-      },
-      {
-        playerName: 'Kenzo',
-        playerPosition: 'OPOSTO',
-        playerNumber: '12',
-        playerImage: '/assets/players/aliança/Kenzo.png',
-      },
-      {
-        playerName: 'Hugo',
-        playerPosition: 'CENTRAL',
-        playerNumber: '6',
-        playerImage: '/assets/players/aliança/Hugo.png',
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'San Marino',
-    logo: SanMarino,
-    colorPrimary: '#4c1d95',
-    players: [
-      {
-        playerName: 'Lucas',
-        playerPosition: 'OPOSTO',
-        playerNumber: '11',
-        playerImage: '/assets/players/san marino/Lucas.png',
-        isTeamCaptain: true,
-      },
-      {
-        playerName: 'Sampaio',
-        playerPosition: 'CENTRAL',
-        playerNumber: '6',
-        playerImage: '/assets/players/san marino/Vitor.png',
-      },
-      {
-        playerName: 'Solberg',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '31',
-        playerImage: '/assets/players/san marino/Solberg.png',
-      },
-      {
-        playerName: 'Aldo',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '2',
-        playerImage: '/assets/players/san marino/Aldo.png',
-      },
-      {
-        playerName: 'Kezz',
-        playerPosition: 'CENTRAL',
-        playerNumber: '8',
-        playerImage: '/assets/players/san marino/Kezz.png',
-      },
-      {
-        playerName: 'Henze',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '5',
-        playerImage: '/assets/players/san marino/Henze.png',
-      },
-    ],
-    libero: {
-      playerName: 'Jadson',
-      playerPosition: 'LIBERO',
-      playerNumber: '25',
-      playerImage: '/assets/players/san marino/Jadson.png',
-      substitutes: [4],
-    },
-  },
-  {
-    id: 3,
-    name: 'Volei Up',
-    logo: Up,
-    colorPrimary: '#aa347d',
-    players: [
-      {
-        playerName: 'João',
-        playerPosition: 'OPOSTO',
-        playerNumber: '11',
-        playerImage: '/assets/players/up/João.png',
-      },
-      {
-        playerName: 'Wheverton',
-        playerPosition: 'CENTRAL',
-        playerNumber: '10',
-        playerImage: '/assets/players/up/Wheverton.png',
-        isTeamCaptain: true,
-      },
-      {
-        playerName: 'Eli',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '3',
-        playerImage: '/assets/players/up/Eliziano.png',
-      },
-      {
-        playerName: 'Franklin',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '2',
-        playerImage: '/assets/players/up/Franklin.png',
-      },
-      {
-        playerName: 'Harry',
-        playerPosition: 'CENTRAL',
-        playerNumber: '7',
-        playerImage: '/assets/players/up/Harry.png',
-      },
-      {
-        playerName: 'Edu',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '83',
-        playerImage: '/assets/players/up/Edu.png',
-      },
-      {
-        playerName: 'Rodrigo',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '11',
-        playerImage: '/assets/players/up/Rodrigo.png',
-      },
-      {
-        playerName: 'Matheus',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '9',
-        playerImage: '/assets/players/up/Matheus.png',
-      },
-      {
-        playerName: 'Sérgio',
-        playerPosition: 'OPOSTO',
-        playerNumber: '4',
-        playerImage: '/assets/players/up/Sergio.png',
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: 'Neópolis',
-    logo: Neopolis,
-    colorPrimary: '#0369a1',
-    players: [
-      {
-        playerName: 'Adriel',
-        playerPosition: 'OPOSTO',
-        playerNumber: '21',
-        playerImage: '/assets/players/neopolis/Adriel.png',
-      },
-      {
-        playerName: 'Amaro',
-        playerPosition: 'CENTRAL',
-        playerNumber: '13',
-        playerImage: '/assets/players/neopolis/Amaro.png',
-        isTeamCaptain: true,
-      },
-      {
-        playerName: 'Jean',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '9',
-        playerImage: '/assets/players/neopolis/Jean.png',
-      },
-      {
-        playerName: 'Ezequiel',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '12',
-        playerImage: '/assets/players/neopolis/Ezequiel.png',
-      },
-      {
-        playerName: 'Hélio',
-        playerPosition: 'CENTRAL',
-        playerNumber: '7',
-        playerImage: '/assets/players/neopolis/Hélio.png',
-      },
-      {
-        playerName: 'Luan',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '1',
-        playerImage: '/assets/players/neopolis/Luan.png',
-      },
-      {
-        playerName: 'Mingau',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '8',
-        playerImage: '/assets/players/neopolis/Mingau.png',
-      },
-    ],
-    libero: {
-      playerName: 'Rafa',
-      playerPosition: 'LIBERO',
-      playerNumber: '6',
-      playerImage: '/assets/players/neopolis/Rafa.png',
-      substitutes: [4],
-    },
-  },
-  {
-    id: 5,
-    name: 'Gela Volei',
-    logo: GelaVolei,
-    colorPrimary: '#0c31a8',
-    players: [
-      {
-        playerName: 'Cabral',
-        playerPosition: 'OPOSTO',
-        playerNumber: '17',
-        playerImage: '/assets/players/gela/Cabral.png',
-      },
-      {
-        playerName: 'Abbott',
-        playerPosition: 'CENTRAL',
-        playerNumber: '10',
-        playerImage: '/assets/players/gela/Abbott.png',
-      },
-      {
-        playerName: 'Robson',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '11',
-        playerImage: '/assets/players/gela/Robson.png',
-      },
-      {
-        playerName: 'Duda',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '9',
-        playerImage: '/assets/players/gela/Duda.png',
-        isTeamCaptain: true,
-      },
-      {
-        playerName: 'Pedro P.',
-        playerPosition: 'CENTRAL',
-        playerNumber: '80',
-        playerImage: '/assets/players/gela/Pedro Paulo.png',
-      },
-      {
-        playerName: 'Jay',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '12',
-        playerImage: '/assets/players/gela/Jay.png',
-      },
-      {
-        playerName: 'Fúlvio',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '7',
-        playerImage: '/assets/players/gela/Fúlvio.png',
-      },
-      {
-        playerName: 'Gabriel',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '5',
-        playerImage: '/assets/players/gela/Gabriel.png',
-      },
-      {
-        playerName: 'Gustavo',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '8',
-        playerImage: '/assets/players/gela/Gustavo.png',
-      },
-    ],
-    libero: {
-      playerName: 'Yuri',
-      playerPosition: 'LIBERO',
-      playerNumber: '3',
-      playerImage: '/assets/players/gela/Yuri.png',
-      substitutes: [4],
-    },
-  },
-  {
-    id: 6,
-    name: 'Volei União',
-    logo: União,
-    colorPrimary: '#14532d',
-    players: [
-      {
-        playerName: 'Igor',
-        playerPosition: 'OPOSTO',
-        playerNumber: '7',
-        playerImage: '/assets/players/união/Igor.png',
-        isTeamCaptain: true,
-      },
-      {
-        playerName: 'Salgado',
-        playerPosition: 'CENTRAL',
-        playerNumber: '8',
-        playerImage: '/assets/players/união/Salgado.png',
-      },
-      {
-        playerName: 'Mateus',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '13',
-        playerImage: '/assets/players/união/Mateus.png',
-      },
-      {
-        playerName: 'Pedro Igor',
-        playerPosition: 'PONTEIRO',
-        playerNumber: '15',
-        playerImage: '/assets/players/união/Pedro Igor.png',
-      },
-      {
-        playerName: 'L. Eduardo',
-        playerPosition: 'CENTRAL',
-        playerNumber: '10',
-        playerImage: '/assets/players/união/Luiz Eduardo.png',
-      },
-      {
-        playerName: 'Gabriel',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '2',
-        playerImage: '/assets/players/união/Gabriel.png',
-      },
-      {
-        playerName: 'Murillo',
-        playerPosition: 'LEVANTADOR',
-        playerNumber: '12',
-        playerImage: '/assets/players/união/Murillo.png',
-      },
-      {
-        playerName: 'Luiz Felipe',
-        playerPosition: 'OPOSTO',
-        playerNumber: '11',
-        playerImage: '/assets/players/união/Luiz Felipe.png',
-      },
-    ],
-    libero: {
-      playerName: 'Leonardo',
-      playerPosition: 'LIBERO',
-      playerNumber: '6',
-      playerImage: '/assets/players/união/Leonardo.png',
-      substitutes: [4],
-    },
-  },
-]
+type Match = {
+  id: number
+  teamA: number
+  teamB: number
+  score: {
+    teamA: number
+    teamB: number
+  }
+  sets: string[]
+}
 
-function isPlayer(player: Player | string): player is Player {
-  return typeof player === 'object' && player !== null
+type Round = {
+  games: Match[]
 }
 
 export function TeamDetails() {
   const navigate = useNavigate()
   const { teamId } = useParams<{ teamId: string }>()
+  const menuRef = useRef<HTMLDivElement | null>(null)
 
-  const [activeTab, setActiveTab] = useState<'subs' | 'stats' | null>(null)
+  const [teams, setTeams] = useState<any[]>([])
+  const [team, setTeam] = useState<Team | null>(null)
   const [isContentVisible, setIsContentVisible] = useState(false)
-
-  const team = teams.find((team) => team.id === Number(teamId))
-  const players = team ? team.players : []
-
-  const mainPlayers = players.slice(0, 6)
-  const subsPlayers = players.slice(6)
-
-  if (!team) {
-    return <p>Time não encontrado!</p>
-  }
-
-  const [liberoSubstituted, setLiberoSubstituted] = useState<number[]>(team?.libero?.substitutes || [])
-  const handleLiberoToggle = (index: number) => {
-    setLiberoSubstituted((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
-  }
   const [rotatingCards, setRotatingCards] = useState<number[]>([])
-  const handleFlip = (index: number) => {
-    // Adiciona o índice à lista de cards girando
-    setRotatingCards((prev) => [...prev, index])
-
-    // Após a rotação (600ms), remove o índice da lista
-    setTimeout(() => {
-      setRotatingCards((prev) => prev.filter((i) => i !== index))
-      handleLiberoToggle(index) // Chama a troca do líbero após a animação
-    }, 300) // Tempo de duração da animação
-  }
-
-  const toggleTab = (tab: 'subs' | 'stats') => {
-    if (activeTab === tab) {
-      // Fechar a aba ativa
-      setIsContentVisible(false) // Primeiro, oculta o conteúdo
-      setActiveTab(null) // Após 300ms, remove a aba ativa
-    } else {
-      // Abrir nova aba
-      setIsContentVisible(true) // Exibe o conteúdo imediatamente
-      setActiveTab(tab)
-    }
-  }
-
+  const [liberoSubstituted, setLiberoSubstituted] = useState<number[]>([])
+  const [activeTab, setActiveTab] = useState<'subs' | 'stats' | null>(null)
   const [activeStatsContent, setActiveStatsContent] = useState<'default' | 'highlights' | 'recentGames'>('default')
+  const [teamPosition, setTeamPosition] = useState<number | null>(null)
+  const [teamStats, setTeamStats] = useState<any | null>(null)
+  const [totalTeams, setTotalTeams] = useState<number>(0)
+  const [matches, setMatches] = useState<Match[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const teamsData = await fetch('/data/teams.json').then((res) => res.json())
+        const matchesData = await fetch('/data/matches.json').then((res) => res.json())
+        const calculatedStats = calculateTeamStats(teamsData, matchesData)
+        const selectedTeamStats = calculatedStats.find((team) => team.id === Number(teamId))
+        const sorted = sortTeams(calculatedStats, matchesData)
+        const teamPosition = sorted.findIndex((team) => team.id === Number(teamId)) + 1
+
+        setTeams(teamsData)
+        setMatches(matchesData.rounds.flatMap((round: Round) => round.games))
+        setTeamStats(selectedTeamStats)
+        setTotalTeams(teamsData.length)
+        setTeamPosition(teamPosition)
+      } catch (error) {
+        console.error('Erro ao carregar as estatísticas:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    async function fetchTeams() {
+      try {
+        const data: Team[] = await fetch('/data/teams.json').then((res) => res.json())
+        const selectedTeam = data.find((team) => team.id === Number(teamId))
+
+        setTeams(data)
+        setTeam(selectedTeam || null)
+
+        if (selectedTeam?.libero?.substitutes) {
+          setLiberoSubstituted(selectedTeam.libero.substitutes)
+        }
+      } catch (error) {
+        console.error('Erro ao carregar os times:', error)
+      }
+    }
+
+    fetchData()
+    fetchTeams()
+  }, [teamId])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Verifica se o clique foi fora do menu
-      if (isContentVisible && !document.querySelector('.guides-container')?.contains(event.target as Node)) {
+      if (isContentVisible && menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsContentVisible(false)
         setActiveTab(null)
       }
@@ -505,35 +119,69 @@ export function TeamDetails() {
     }
   }, [isContentVisible])
 
+  if (!team && teams.length === 0) {
+    return <p>Carregando times...</p>
+  }
+
+  if (!team && teams.length > 0) {
+    return <p>Time ou jogadores não encontrados!</p>
+  }
+
+  if (!team) {
+    alert('Time não encontrado!')
+    return null
+  }
+
+  console.log('isLoading: ', isLoading)
+
+  const lastGames = matches
+    .filter((game) => game.teamA === teamStats?.id || game.teamB === teamStats?.id)
+    .filter((game) => game.score && game.sets && game.sets.length > 0)
+    .slice(-3)
+    .reverse()
+
+  const players = team.players.filter((player): player is Player => typeof player === 'object')
+  const mainPlayers = players.slice(0, 6)
+  const subsPlayers = players.slice(6)
+
+  const handleLiberoToggle = (index: number) => {
+    setLiberoSubstituted((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
+  }
+
+  const handleFlip = (index: number) => {
+    setRotatingCards((prev) => [...prev, index])
+
+    setTimeout(() => {
+      setRotatingCards((prev) => prev.filter((i) => i !== index))
+      handleLiberoToggle(index)
+    }, 300)
+  }
+
+  const toggleTab = (tab: 'subs' | 'stats') => {
+    if (activeTab === tab) {
+      setIsContentVisible(false)
+      setActiveTab(null)
+    } else {
+      setIsContentVisible(true)
+      setActiveTab(tab)
+    }
+  }
+
+  function isPlayer(player: Player | string): player is Player {
+    return typeof player === 'object' && player !== null
+  }
+
   return (
     <TeamDetailsContainer>
-      <Header onClick={() => navigate(-1)}>
-        <CaretLeft size={32} />
-        <h1>{team.name}</h1>
+      <Header>
+        <CaretLeft size={32} onClick={() => navigate(-1)} />
+        <h1 onClick={() => navigate(-1)}>{team.name}</h1>
       </Header>
-
       <Main>
         <MainSquad>
           {mainPlayers.map((player, index) => {
-            if (typeof player === 'string') {
-              // Renderizar um card genérico se for apenas uma string
-              return (
-                <PlayerCard
-                  key={index}
-                  teamName={team.name}
-                  teamLogo={team.logo}
-                  colorPrimary={team.colorPrimary}
-                  playerName="--"
-                  playerPosition="--"
-                  playerNumber="-"
-                  playerImage=""
-                />
-              )
-            }
-
             const isSubstitutedByLibero = liberoSubstituted.includes(index)
             const displayedPlayer = isSubstitutedByLibero ? team.libero || player : player
-            const isTeamCaptain = 'isTeamCaptain' in displayedPlayer ? (displayedPlayer.isTeamCaptain ?? false) : false // Define o capitão apenas para titulares
             return (
               <div
                 key={index}
@@ -543,17 +191,18 @@ export function TeamDetails() {
                   transition: 'transform 0.3s ease-in-out',
                 }}
               >
-                <PlayerCard
-                  key={index}
-                  teamName={team.name}
-                  teamLogo={team.logo}
-                  colorPrimary={team.colorPrimary}
-                  playerName={displayedPlayer.playerName}
-                  playerPosition={displayedPlayer.playerPosition}
-                  playerNumber={displayedPlayer.playerNumber}
-                  playerImage={displayedPlayer.playerImage}
-                  isTeamCaptain={isTeamCaptain}
-                />
+                <div key={index}>
+                  <PlayerCard
+                    teamName={team.name}
+                    teamLogo={team.logo}
+                    colorPrimary={team.colorPrimary}
+                    playerName={displayedPlayer.playerName}
+                    playerPosition={displayedPlayer.playerPosition}
+                    playerNumber={displayedPlayer.playerNumber}
+                    playerImage={displayedPlayer.playerImage}
+                    isTeamCaptain={displayedPlayer.isTeamCaptain || false}
+                  />
+                </div>
 
                 {team.libero && team.libero.substitutes.includes(index) && (
                   <LiberoButton onClick={() => handleFlip(index)}>
@@ -564,7 +213,7 @@ export function TeamDetails() {
             )
           })}
         </MainSquad>
-        <GuidesContainer isOpen={!!activeTab} className="guides-container">
+        <GuidesContainer isOpen={!!activeTab} className="guides-container" ref={menuRef}>
           <div className="buttons">
             <button onClick={() => toggleTab('subs')} className={activeTab === 'subs' ? 'active' : ''}>
               Subs
@@ -605,25 +254,27 @@ export function TeamDetails() {
                     <div>
                       <h3>Posição</h3>
                       <div className="stat-content">
-                        <p>1º</p>
+                        <p>{teamPosition}º</p>
                         <div className="bar"></div>
-                        <p>6</p>
+                        <p>{totalTeams.toString()}</p>
                       </div>
                     </div>
                     <div className="overall">
                       <h3>Desempenho Geral</h3>
                       <div className="stat-content">
                         <p>
-                          Pontos: <strong>21</strong>
+                          Pontos: <strong>{teamStats.stats.points}</strong>
                         </p>
                         <p>
-                          Vitórias: <strong>7/7</strong>
+                          Vitórias: <strong>{teamStats.stats.wins} </strong>/{' '}
+                          {teamStats.stats.wins + teamStats.stats.losses}
                         </p>
                         <p>
-                          Sets Vencidos: <strong>14/14</strong>
+                          Sets Vencidos: <strong>{teamStats.stats.setsWon} </strong>/{' '}
+                          {teamStats.stats.setsWon + teamStats.stats.setsLost}
                         </p>
                         <p>
-                          Pontos Feitos: <strong>355</strong>
+                          Pontos Feitos: <strong>{teamStats.stats.pointsScored}</strong>
                         </p>
                       </div>
                     </div>
@@ -686,18 +337,24 @@ export function TeamDetails() {
                       <h3 onClick={() => setActiveStatsContent('default')}>Últimos Jogos</h3>
                     </div>
                     <ul>
-                      <li>
-                        <img src={teams[1].logo} />
-                        San Marino <span>(2-0)</span>
-                      </li>
-                      <li>
-                        <img src={teams[3].logo} />
-                        Volei Natal <span>(2-0)</span>
-                      </li>
-                      <li>
-                        <img src={teams[5].logo} />
-                        Volei União <span>(2-0)</span>
-                      </li>
+                      {lastGames.map((game, index) => {
+                        const isTeamA = game.teamA === teamStats.id
+                        const opponentTeam = teams.find((team) => team.id === (isTeamA ? game.teamB : game.teamA))
+
+                        const teamScore = isTeamA ? game.score.teamA : game.score.teamB
+                        const opponentScore = isTeamA ? game.score.teamB : game.score.teamA
+
+                        const formattedScore = `${teamScore} - ${opponentScore}`
+
+                        return (
+                          <li key={index}>
+                            <img src={opponentTeam?.logo} alt={opponentTeam?.name} />
+                            {opponentTeam?.name}
+
+                            <span>({formattedScore})</span>
+                          </li>
+                        )
+                      })}
                     </ul>
                   </div>
                 )}
@@ -712,27 +369,30 @@ export function TeamDetails() {
             <div>
               <h3>Posição</h3>
               <div className="stat-content">
-                <span>1</span>
-                <span>/6</span>
+                <span>{teamPosition}</span>
+                <span>/ {totalTeams.toString()}</span>
               </div>
             </div>
             <div className="overall">
               <h3>Desempenho Geral</h3>
               <div className="stat-content">
                 <p>
-                  Pontos: <strong>21</strong>
+                  Pontos: <strong>{teamStats?.stats?.points}</strong>
                 </p>
                 <p>
-                  Vitórias: <strong>7 </strong>/ 7
+                  Vitórias: <strong>{teamStats?.stats?.wins} </strong> /{' '}
+                  {teamStats?.stats ? teamStats.stats.wins + teamStats.stats.losses : '--'}
                 </p>
                 <p>
-                  Sets Vencidos: <strong>14 </strong>/ 14
+                  Sets Vencidos: <strong>{teamStats?.stats?.setsWon} </strong> /{' '}
+                  {teamStats?.stats ? teamStats.stats.setsWon + teamStats.stats.setsLost : '--'}
                 </p>
                 <p>
-                  Pontos Feitos: <strong>355</strong>
+                  Pontos Feitos: <strong>{teamStats?.stats?.pointsScored}</strong>
                 </p>
               </div>
             </div>
+
             <div>
               <h3>Destaques do Time</h3>
               <ul>
@@ -771,18 +431,24 @@ export function TeamDetails() {
             <div>
               <h3>Últimos Jogos</h3>
               <ul>
-                <li>
-                  <img src={teams[1].logo} />
-                  San Marino <span>(2-0)</span>
-                </li>
-                <li>
-                  <img src={teams[3].logo} />
-                  Volei Natal <span>(2-0)</span>
-                </li>
-                <li>
-                  <img src={teams[5].logo} />
-                  Volei União <span>(2-0)</span>
-                </li>
+                {lastGames.map((game, index) => {
+                  const isTeamA = game.teamA === teamStats.id
+                  const opponentTeam = teams.find((team) => team.id === (isTeamA ? game.teamB : game.teamA))
+
+                  const teamScore = isTeamA ? game.score.teamA : game.score.teamB
+                  const opponentScore = isTeamA ? game.score.teamB : game.score.teamA
+
+                  const formattedScore = `${teamScore} - ${opponentScore}`
+
+                  return (
+                    <li key={index}>
+                      <img src={opponentTeam?.logo} alt={opponentTeam?.name} />
+                      {opponentTeam?.name}
+
+                      <span>({formattedScore})</span>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           </div>
