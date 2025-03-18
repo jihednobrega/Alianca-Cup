@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "name": "Seleção do Campeonato",
+    "shortName": "SEL",
+    "logo": "/assets/teams/Championship Team.png",
+    "colorPrimary": "#fef3c7",
+    "players": [
+      {
+        "playerName": "João",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/aliança/João.png"
+      },
+      {
+        "playerName": "Wheverton",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/up/Wheverton.png"
+      },
+      {
+        "playerName": "Jean",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/neopolis/Jean.png"
+      },
+      {
+        "playerName": "Pedro Igor",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "15",
+        "playerImage": "/assets/players/união/Pedro Igor.png"
+      },
+      {
+        "playerName": "Sampaio",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "6",
+        "playerImage": "/assets/players/san marino/Vitor.png"
+      },
+      {
+        "playerName": "Cláudio",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "26",
+        "playerImage": "/assets/players/aliança/Claudio.png"
+      },
+      {
+        "playerName": "Kildere",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/aliança/Kildere.png"
+      },
+      {
+        "playerName": "Duda",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/gela/Duda.png"
+      },
+      {
+        "playerName": "Gabriel",
+        "playerPosition": "LEVANTADOR",
+        "playerNumber": "2",
+        "playerImage": "/assets/players/união/Gabriel.png"
+      },
+      {
+        "playerName": "Pedro P.",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "80",
+        "playerImage": "/assets/players/gela/Pedro Paulo.png"
+      },
+      {
+        "playerName": "Igor",
+        "playerPosition": "OPOSTO",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/união/Igor.png"
+      },
+      {
+        "playerName": "Yuri",
+        "playerPosition": "LIBERO",
+        "playerNumber": "3",
+        "playerImage": "/assets/players/gela/Yuri.png"
+      },
+      {
+        "playerName": "Eli",
+        "playerPosition": "PONTEIRO",
+        "playerNumber": "3",
+        "playerImage": "/assets/players/up/Eliziano.png"
+      }
+    ],
+    "libero": {
+      "playerName": "Rafa",
+      "playerPosition": "LIBERO",
+      "playerNumber": "6",
+      "playerImage": "/assets/players/neopolis/Rafa.png",
+      "substitutes": [4]
+    }
+  }
+]

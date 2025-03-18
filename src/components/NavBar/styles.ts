@@ -35,6 +35,7 @@ export const NavBarContainer = styled.nav`
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     flex-direction: column;
+    max-width: 5rem;
 
     a {
       width: 100%;
@@ -47,6 +48,7 @@ export const NavBarContainer = styled.nav`
         display: block;
         font-size: 0.8rem;
         padding-bottom: 0.25rem;
+        text-align: center;
       }
     }
   }
@@ -75,6 +77,7 @@ export const NavBarWrapper = styled.footer`
 
     p.copyright {
       padding-inline: 1rem;
+      user-select: none;
     }
   }
 `

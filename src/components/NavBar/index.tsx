@@ -1,5 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import { CalendarDots, HouseSimple, Ranking, UsersThree } from '@phosphor-icons/react'
+import {
+  CalendarDots,
+  HouseSimple,
+  Ranking,
+  Star,
+  UsersThree,
+} from '@phosphor-icons/react'
 import { NavBarWrapper, NavBarContainer } from './styles'
 
 export function NavBar() {
@@ -14,16 +20,22 @@ export function NavBar() {
           <Ranking size={32} />
           <p>Classificação</p>
         </NavLink>
-        <NavLink to="calendar" title="Jogos">
+        <NavLink to="schedule" title="Jogos">
           <CalendarDots size={32} />
           <p>Jogos</p>
         </NavLink>
-        <NavLink to="/teams" title="Equipes">
+        <NavLink to="teams" title="Equipes">
           <UsersThree size={32} />
           <p>Equipes</p>
         </NavLink>
+        <NavLink to="highlights" title="Destaques">
+          <Star size={32} />
+          <p>Destaques</p>
+        </NavLink>
       </NavBarContainer>
-      <p className="copyright">© 2025 Aliança Cup. Todos os direitos reservados.</p>
+      <p className="copyright">
+        © 2025 Aliança Cup. Todos os direitos reservados.
+      </p>
     </NavBarWrapper>
   )
 }

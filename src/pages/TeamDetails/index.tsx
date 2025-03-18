@@ -2,8 +2,20 @@ import { useEffect, useRef, useState } from 'react'
 import { PlayerCard } from '../../components/PlayerCard'
 import { useParams, useNavigate } from 'react-router-dom'
 import { calculateTeamStats } from '../../utils/calculateTeamStats'
-import { ArrowsClockwise, CaretDown, CaretLeft, CaretUp } from '@phosphor-icons/react'
-import { TeamDetailsContainer, Header, Main, GuidesContainer, MainSquad, LiberoButton } from './styles'
+import {
+  ArrowsClockwise,
+  CaretDown,
+  CaretLeft,
+  CaretUp,
+} from '@phosphor-icons/react'
+import {
+  TeamDetailsContainer,
+  Header,
+  Main,
+  GuidesContainer,
+  MainSquad,
+  LiberoButton,
+} from './styles'
 import { sortTeams } from '../../utils/sortTeams'
 
 type Player = {
@@ -53,22 +65,30 @@ export function TeamDetails() {
   const [rotatingCards, setRotatingCards] = useState<number[]>([])
   const [liberoSubstituted, setLiberoSubstituted] = useState<number[]>([])
   const [activeTab, setActiveTab] = useState<'subs' | 'stats' | null>(null)
-  const [activeStatsContent, setActiveStatsContent] = useState<'default' | 'highlights' | 'recentGames'>('default')
+  const [activeStatsContent, setActiveStatsContent] = useState<
+    'default' | 'highlights' | 'recentGames'
+  >('default')
   const [teamPosition, setTeamPosition] = useState<number | null>(null)
   const [teamStats, setTeamStats] = useState<any | null>(null)
   const [totalTeams, setTotalTeams] = useState<number>(0)
   const [matches, setMatches] = useState<Match[]>([])
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const teamsData = await fetch('/data/teams.json').then((res) => res.json())
-        const matchesData = await fetch('/data/matches.json').then((res) => res.json())
+        const teamsData = await fetch('/data/teams.json').then((res) =>
+          res.json(),
+        )
+        const matchesData = await fetch('/data/matches.json').then((res) =>
+          res.json(),
+        )
         const calculatedStats = calculateTeamStats(teamsData, matchesData)
-        const selectedTeamStats = calculatedStats.find((team) => team.id === Number(teamId))
+        const selectedTeamStats = calculatedStats.find(
+          (team) => team.id === Number(teamId),
+        )
         const sorted = sortTeams(calculatedStats, matchesData)
-        const teamPosition = sorted.findIndex((team) => team.id === Number(teamId)) + 1
+        const teamPosition =
+          sorted.findIndex((team) => team.id === Number(teamId)) + 1
 
         setTeams(teamsData)
         setMatches(matchesData.rounds.flatMap((round: Round) => round.games))
@@ -77,14 +97,14 @@ export function TeamDetails() {
         setTeamPosition(teamPosition)
       } catch (error) {
         console.error('Erro ao carregar as estatísticas:', error)
-      } finally {
-        setIsLoading(false)
       }
     }
 
     async function fetchTeams() {
       try {
-        const data: Team[] = await fetch('/data/teams.json').then((res) => res.json())
+        const data: Team[] = await fetch('/data/teams.json').then((res) =>
+          res.json(),
+        )
         const selectedTeam = data.find((team) => team.id === Number(teamId))
 
         setTeams(data)
@@ -104,7 +124,11 @@ export function TeamDetails() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (isContentVisible && menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        isContentVisible &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
         setIsContentVisible(false)
         setActiveTab(null)
       }
@@ -132,20 +156,24 @@ export function TeamDetails() {
     return null
   }
 
-  console.log('isLoading: ', isLoading)
-
   const lastGames = matches
-    .filter((game) => game.teamA === teamStats?.id || game.teamB === teamStats?.id)
+    .filter(
+      (game) => game.teamA === teamStats?.id || game.teamB === teamStats?.id,
+    )
     .filter((game) => game.score && game.sets && game.sets.length > 0)
     .slice(-3)
     .reverse()
 
-  const players = team.players.filter((player): player is Player => typeof player === 'object')
+  const players = team.players.filter(
+    (player): player is Player => typeof player === 'object',
+  )
   const mainPlayers = players.slice(0, 6)
   const subsPlayers = players.slice(6)
 
   const handleLiberoToggle = (index: number) => {
-    setLiberoSubstituted((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
+    setLiberoSubstituted((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    )
   }
 
   const handleFlip = (index: number) => {
@@ -181,13 +209,17 @@ export function TeamDetails() {
         <MainSquad>
           {mainPlayers.map((player, index) => {
             const isSubstitutedByLibero = liberoSubstituted.includes(index)
-            const displayedPlayer = isSubstitutedByLibero ? team.libero || player : player
+            const displayedPlayer = isSubstitutedByLibero
+              ? team.libero || player
+              : player
             return (
               <div
                 key={index}
                 style={{
                   position: 'relative',
-                  transform: rotatingCards.includes(index) ? 'rotateY(90deg)' : 'rotateY(0deg)',
+                  transform: rotatingCards.includes(index)
+                    ? 'rotateY(90deg)'
+                    : 'rotateY(0deg)',
                   transition: 'transform 0.3s ease-in-out',
                 }}
               >
@@ -199,7 +231,10 @@ export function TeamDetails() {
                     playerName={displayedPlayer.playerName}
                     playerPosition={displayedPlayer.playerPosition}
                     playerNumber={displayedPlayer.playerNumber}
-                    playerImage={displayedPlayer.playerImage}
+                    playerImage={
+                      displayedPlayer.playerImage ||
+                      '/assets/players/default-player-man.png'
+                    }
                     isTeamCaptain={displayedPlayer.isTeamCaptain || false}
                   />
                 </div>
@@ -213,18 +248,34 @@ export function TeamDetails() {
             )
           })}
         </MainSquad>
-        <GuidesContainer isOpen={!!activeTab} className="guides-container" ref={menuRef}>
+        <GuidesContainer isOpen={!!activeTab} ref={menuRef}>
           <div className="buttons">
-            <button onClick={() => toggleTab('subs')} className={activeTab === 'subs' ? 'active' : ''}>
+            <button
+              onClick={() => toggleTab('subs')}
+              className={activeTab === 'subs' ? 'active' : ''}
+            >
               Subs
-              {activeTab === 'subs' ? <CaretDown size={24} /> : <CaretUp size={24} />}
+              {activeTab === 'subs' ? (
+                <CaretDown size={24} />
+              ) : (
+                <CaretUp size={24} />
+              )}
             </button>
-            <button onClick={() => toggleTab('stats')} className={activeTab === 'stats' ? 'active' : ''}>
-              {activeTab === 'stats' ? <CaretDown size={24} /> : <CaretUp size={24} />}
+            <button
+              onClick={() => toggleTab('stats')}
+              className={activeTab === 'stats' ? 'active' : ''}
+            >
+              {activeTab === 'stats' ? (
+                <CaretDown size={24} />
+              ) : (
+                <CaretUp size={24} />
+              )}
               Stats
             </button>
           </div>
-          <div className={`subsContent ${activeTab === 'subs' && isContentVisible ? 'open' : ''}`}>
+          <div
+            className={`subsContent ${activeTab === 'subs' && isContentVisible ? 'open' : ''}`}
+          >
             {activeTab === 'subs' &&
               subsPlayers.map((player, index) =>
                 typeof player === 'object' ? (
@@ -236,7 +287,10 @@ export function TeamDetails() {
                     playerName={player.playerName}
                     playerPosition={player.playerPosition}
                     playerNumber={player.playerNumber}
-                    playerImage={player.playerImage}
+                    playerImage={
+                      player.playerImage ||
+                      '/assets/players/default-player-man.png'
+                    }
                     isTeamCaptain={player.isTeamCaptain}
                   />
                 ) : (
@@ -246,7 +300,9 @@ export function TeamDetails() {
                 ),
               )}
           </div>
-          <div className={`statsContent ${activeTab === 'stats' && isContentVisible ? 'open' : ''}`}>
+          <div
+            className={`statsContent ${activeTab === 'stats' && isContentVisible ? 'open' : ''}`}
+          >
             {activeTab === 'stats' && (
               <div className="stats">
                 {activeStatsContent === 'default' && (
@@ -270,18 +326,22 @@ export function TeamDetails() {
                           {teamStats.stats.wins + teamStats.stats.losses}
                         </p>
                         <p>
-                          Sets Vencidos: <strong>{teamStats.stats.setsWon} </strong>/{' '}
+                          Sets Vencidos:{' '}
+                          <strong>{teamStats.stats.setsWon} </strong>/{' '}
                           {teamStats.stats.setsWon + teamStats.stats.setsLost}
                         </p>
                         <p>
-                          Pontos Feitos: <strong>{teamStats.stats.pointsScored}</strong>
+                          Pontos Feitos:{' '}
+                          <strong>{teamStats.stats.pointsScored}</strong>
                         </p>
                       </div>
                     </div>
                     <button onClick={() => setActiveStatsContent('highlights')}>
                       <h3>Destaques do Time</h3>
                     </button>
-                    <button onClick={() => setActiveStatsContent('recentGames')}>
+                    <button
+                      onClick={() => setActiveStatsContent('recentGames')}
+                    >
                       <h3>Últimos Jogos</h3>
                     </button>
                   </div>
@@ -292,14 +352,22 @@ export function TeamDetails() {
                       <button onClick={() => setActiveStatsContent('default')}>
                         <CaretLeft size={32} />
                       </button>
-                      <h3 onClick={() => setActiveStatsContent('default')}>Destaques do Time</h3>
+                      <h3 onClick={() => setActiveStatsContent('default')}>
+                        Destaques do Time
+                      </h3>
                     </div>
                     <ul>
                       <li>
                         Maior Pontuador:
                         {isPlayer(team.players[0]) && (
                           <>
-                            <img src={team.players[0].playerImage} alt="Maior Pontuador" />
+                            <img
+                              src={
+                                team.players[0].playerImage ||
+                                '/assets/players/default-player-man.png'
+                              }
+                              alt="Maior Pontuador"
+                            />
                             <strong>{team.players[0].playerName}</strong>
                           </>
                         )}
@@ -309,7 +377,13 @@ export function TeamDetails() {
                         Maior Bloqueador:
                         {isPlayer(team.players[4]) && (
                           <>
-                            <img src={team.players[4].playerImage} alt="Maior Bloqueador" />
+                            <img
+                              src={
+                                team.players[4].playerImage ||
+                                '/assets/players/default-player-man.png'
+                              }
+                              alt="Maior Bloqueador"
+                            />
                             <strong>{team.players[4].playerName}</strong>
                           </>
                         )}
@@ -319,7 +393,13 @@ export function TeamDetails() {
                         Líder em aces:
                         {isPlayer(team.players[1]) && (
                           <>
-                            <img src={team.players[1].playerImage} alt="Líder em Aces" />
+                            <img
+                              src={
+                                team.players[1].playerImage ||
+                                '/assets/players/default-player-man.png'
+                              }
+                              alt="Líder em Aces"
+                            />
                             <strong>{team.players[1].playerName}</strong>
                           </>
                         )}
@@ -334,21 +414,33 @@ export function TeamDetails() {
                       <button onClick={() => setActiveStatsContent('default')}>
                         <CaretLeft size={32} />
                       </button>
-                      <h3 onClick={() => setActiveStatsContent('default')}>Últimos Jogos</h3>
+                      <h3 onClick={() => setActiveStatsContent('default')}>
+                        Últimos Jogos
+                      </h3>
                     </div>
                     <ul>
                       {lastGames.map((game, index) => {
                         const isTeamA = game.teamA === teamStats.id
-                        const opponentTeam = teams.find((team) => team.id === (isTeamA ? game.teamB : game.teamA))
+                        const opponentTeam = teams.find(
+                          (team) =>
+                            team.id === (isTeamA ? game.teamB : game.teamA),
+                        )
 
-                        const teamScore = isTeamA ? game.score.teamA : game.score.teamB
-                        const opponentScore = isTeamA ? game.score.teamB : game.score.teamA
+                        const teamScore = isTeamA
+                          ? game.score.teamA
+                          : game.score.teamB
+                        const opponentScore = isTeamA
+                          ? game.score.teamB
+                          : game.score.teamA
 
                         const formattedScore = `${teamScore} - ${opponentScore}`
 
                         return (
                           <li key={index}>
-                            <img src={opponentTeam?.logo} alt={opponentTeam?.name} />
+                            <img
+                              src={opponentTeam?.logo}
+                              alt={opponentTeam?.name}
+                            />
                             {opponentTeam?.name}
 
                             <span>({formattedScore})</span>
@@ -381,14 +473,19 @@ export function TeamDetails() {
                 </p>
                 <p>
                   Vitórias: <strong>{teamStats?.stats?.wins} </strong> /{' '}
-                  {teamStats?.stats ? teamStats.stats.wins + teamStats.stats.losses : '--'}
+                  {teamStats?.stats
+                    ? teamStats.stats.wins + teamStats.stats.losses
+                    : '--'}
                 </p>
                 <p>
                   Sets Vencidos: <strong>{teamStats?.stats?.setsWon} </strong> /{' '}
-                  {teamStats?.stats ? teamStats.stats.setsWon + teamStats.stats.setsLost : '--'}
+                  {teamStats?.stats
+                    ? teamStats.stats.setsWon + teamStats.stats.setsLost
+                    : '--'}
                 </p>
                 <p>
-                  Pontos Feitos: <strong>{teamStats?.stats?.pointsScored}</strong>
+                  Pontos Feitos:{' '}
+                  <strong>{teamStats?.stats?.pointsScored}</strong>
                 </p>
               </div>
             </div>
@@ -400,7 +497,13 @@ export function TeamDetails() {
                   Maior Pontuador:
                   {isPlayer(team.players[0]) && (
                     <>
-                      <img src={team.players[0].playerImage} alt="Maior Pontuador" />
+                      <img
+                        src={
+                          team.players[0].playerImage ||
+                          '/assets/players/default-player-man.png'
+                        }
+                        alt="Maior Pontuador"
+                      />
                       <strong>{team.players[0].playerName}</strong>
                     </>
                   )}
@@ -410,7 +513,13 @@ export function TeamDetails() {
                   Maior Bloqueador:
                   {isPlayer(team.players[4]) && (
                     <>
-                      <img src={team.players[4].playerImage} alt="Maior Bloqueador" />
+                      <img
+                        src={
+                          team.players[4].playerImage ||
+                          '/assets/players/default-player-man.png'
+                        }
+                        alt="Maior Bloqueador"
+                      />
                       <strong>{team.players[4].playerName}</strong>
                     </>
                   )}
@@ -420,7 +529,13 @@ export function TeamDetails() {
                   Líder em aces:
                   {isPlayer(team.players[1]) && (
                     <>
-                      <img src={team.players[1].playerImage} alt="Líder em Aces" />
+                      <img
+                        src={
+                          team.players[1].playerImage ||
+                          '/assets/players/default-player-man.png'
+                        }
+                        alt="Líder em Aces"
+                      />
                       <strong>{team.players[1].playerName}</strong>
                     </>
                   )}
@@ -433,10 +548,16 @@ export function TeamDetails() {
               <ul>
                 {lastGames.map((game, index) => {
                   const isTeamA = game.teamA === teamStats.id
-                  const opponentTeam = teams.find((team) => team.id === (isTeamA ? game.teamB : game.teamA))
+                  const opponentTeam = teams.find(
+                    (team) => team.id === (isTeamA ? game.teamB : game.teamA),
+                  )
 
-                  const teamScore = isTeamA ? game.score.teamA : game.score.teamB
-                  const opponentScore = isTeamA ? game.score.teamB : game.score.teamA
+                  const teamScore = isTeamA
+                    ? game.score.teamA
+                    : game.score.teamB
+                  const opponentScore = isTeamA
+                    ? game.score.teamB
+                    : game.score.teamA
 
                   const formattedScore = `${teamScore} - ${opponentScore}`
 

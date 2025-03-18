@@ -44,12 +44,18 @@ export const RulesContainer = styled.main`
 
     .format-selection {
       margin-inline: auto;
+
+      @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+        max-width: 900px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
     }
 
     div {
       display: flex;
       gap: 1rem;
-      max-width: 30rem;
       width: 100%;
 
       button {

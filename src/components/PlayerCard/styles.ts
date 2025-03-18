@@ -8,6 +8,7 @@ export const PlayerCardContainer = styled.div<{ colorPrimary: string }>`
   flex-direction: column;
   align-items: center;
   filter: drop-shadow(0px 0px 5px ${(props) => props.colorPrimary || '#ccc'});
+  user-select: none;
 `
 
 export const CardBorder = styled.div<{ colorPrimary: string }>`
@@ -21,7 +22,11 @@ export const CardBorder = styled.div<{ colorPrimary: string }>`
 `
 
 export const CardInner = styled.div<{ colorPrimary: string }>`
-  background: linear-gradient(179deg, ${(props) => props.colorPrimary || '#ccc'}, #e3a83b 90%);
+  background: linear-gradient(
+    179deg,
+    ${(props) => props.colorPrimary || '#ccc'},
+    #e3a83b 90%
+  );
   /* padding: 0.5rem 0.2rem 0rem; */
   width: 108px;
   max-height: 174px;
@@ -90,7 +95,7 @@ export const CardText = styled.div`
   &:before {
     content: '';
     position: absolute;
-    background: url('https://i.pinimg.com/originals/80/7d/ce/807dcedf950725fea6b935cdb6ffb4a6.jpg');
+    background: url('/assets/sand-texture.jpg');
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -167,11 +172,11 @@ export const CardText = styled.div`
   }
 `
 export const CaptainBadge = styled.span`
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
   line-height: 0;
   position: absolute;
-  top: 5.3rem;
+  top: 5rem;
   right: 0.3rem;
   display: flex;
   align-items: center;

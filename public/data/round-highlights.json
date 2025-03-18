@@ -1,0 +1,32 @@
+[
+  {
+    "roundId": 1,
+    "roundName": "1º Rodada",
+    "players": [
+      { "playerId": 1 },
+      { "playerId": 23 },
+      { "playerId": 33 },
+      { "playerId": 52 },
+      { "playerId": 16 },
+      { "playerId": 6 }
+    ],
+    "libero": {
+      "playerId": 38
+    }
+  },
+  {
+    "roundId": 2,
+    "roundName": "2º Rodada",
+    "players": [
+      { "playerId": 15 },
+      { "playerId": 43 },
+      { "playerId": 11 },
+      { "playerId": 51 },
+      { "playerId": 5 },
+      { "playerId": 54 }
+    ],
+    "libero": {
+      "playerId": 48
+    }
+  }
+]

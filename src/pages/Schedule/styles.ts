@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CalendarContainer = styled.div`
+export const ScheduleContainer = styled.div`
   margin-inline: -1rem;
   padding-bottom: 8rem;
   text-align: center;
@@ -9,6 +9,10 @@ export const CalendarContainer = styled.div`
     font-size: 1.5rem;
     font-family: 'Roboto Mono', monospace;
     color: ${(props) => props.theme['gray-100']};
+  }
+
+  @media (min-width: 1200px) {
+    padding-inline: 2rem;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
@@ -24,6 +28,10 @@ export const CalendarContainer = styled.div`
     h1 {
       width: 10rem;
     }
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.widescreen}) {
+    padding-inline: 4rem;
   }
 `
 

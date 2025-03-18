@@ -153,7 +153,8 @@ export const History = styled.li<LastGamesProps>`
   list-style: none;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: ${(props) => props.theme[GAME_RESULT_COLORS[props.gameResultColor]]};
+  background-color: ${(props) =>
+    props.theme[GAME_RESULT_COLORS[props.gameResultColor]]};
   border-radius: 999px;
   margin-right: 0.25rem;
 `

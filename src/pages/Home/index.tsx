@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { WhatsappLogo, InstagramLogo } from '@phosphor-icons/react'
 import alianca from '../../assets/AV-logo-1.png'
-import { HomeContainer, HeroSection, HighlightsSection, HighlightCard, Button } from './styles'
+import {
+  HomeContainer,
+  HeroSection,
+  HighlightsSection,
+  HighlightCard,
+  Button,
+} from './styles'
 
 interface Round {
   round: number
@@ -18,22 +24,39 @@ interface Round {
 
 export function Home() {
   const navigate = useNavigate()
-  const [latestCompletedRound, setLatestCompletedRound] = useState<number | null>(null)
+  const [latestCompletedRound, setLatestCompletedRound] = useState<
+    number | null
+  >(null)
   const [nextRound, setNextRound] = useState<Round | null>(null)
 
   useEffect(() => {
     async function fetchRounds() {
-      const matchesData = await fetch('/data/matches.json').then((res) => res.json())
+      const matchesData = await fetch('/data/matches.json').then((res) =>
+        res.json(),
+      )
 
       const completedRounds = matchesData.rounds.filter((round: Round) =>
-        round.games.every((game) => game.score && game.score.teamA !== undefined && game.score.teamB !== undefined),
+        round.games.every(
+          (game) =>
+            game.score &&
+            game.score.teamA !== undefined &&
+            game.score.teamB !== undefined,
+        ),
       )
 
       const futureRounds = matchesData.rounds.filter((round: Round) =>
-        round.games.some((game) => !game.score || game.score.teamA === undefined || game.score.teamB === undefined),
+        round.games.some(
+          (game) =>
+            !game.score ||
+            game.score.teamA === undefined ||
+            game.score.teamB === undefined,
+        ),
       )
 
-      const lastCompleted = completedRounds.length > 0 ? completedRounds[completedRounds.length - 1].round : null
+      const lastCompleted =
+        completedRounds.length > 0
+          ? completedRounds[completedRounds.length - 1].round
+          : null
       setLatestCompletedRound(lastCompleted)
 
       setNextRound(futureRounds.length > 0 ? futureRounds[0] : null)
@@ -57,17 +80,25 @@ export function Home() {
         <HighlightCard onClick={() => navigate('/ranking')}>
           <h2>Classificação</h2>
           <p>
-            Confira a tabela de classificação após a {latestCompletedRound ? `${latestCompletedRound}º` : 'última'}{' '}
+            Confira a tabela de classificação após a{' '}
+            {latestCompletedRound ? `${latestCompletedRound}º` : 'última'}{' '}
             rodada.
           </p>
         </HighlightCard>
-        <HighlightCard onClick={() => navigate('/calendar')}>
+        <HighlightCard onClick={() => navigate('/schedule')}>
           <h2>Próximos Jogos</h2>
           {nextRound ? (
             <p>
               {nextRound.round}º Rodada -{' '}
-              {new Date(`${nextRound.date}T00:00:00`).toLocaleDateString('pt-BR', { weekday: 'long' })} (
-              {new Date(`${nextRound.date}T00:00:00`).toLocaleDateString('pt-BR')})
+              {new Date(`${nextRound.date}T00:00:00`).toLocaleDateString(
+                'pt-BR',
+                { weekday: 'long' },
+              )}{' '}
+              (
+              {new Date(`${nextRound.date}T00:00:00`).toLocaleDateString(
+                'pt-BR',
+              )}
+              )
             </p>
           ) : (
             <p>Sem jogos programados.</p>
@@ -100,7 +131,9 @@ export function Home() {
           </ul>
         </HighlightCard>
       </HighlightsSection>
-      <p className="copyright">© 2025 Aliança Cup. Todos os direitos reservados.</p>
+      <p className="copyright">
+        © 2025 Aliança Cup. Todos os direitos reservados.
+      </p>
     </HomeContainer>
   )
 }

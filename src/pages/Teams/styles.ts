@@ -15,6 +15,10 @@ export const TeamsContainer = styled.main`
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(16%, 6rem));
     gap: 0.5rem;
+
+    @media (min-width: 1200px) {
+      width: 50rem;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
