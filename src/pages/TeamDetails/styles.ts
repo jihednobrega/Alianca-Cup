@@ -68,6 +68,7 @@ export const TeamDetailsContainer = styled.main`
 
           ul {
             display: grid;
+            margin-top: 1rem;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 0.5rem;
             overflow-x: auto;
@@ -398,6 +399,8 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
       }
 
       button {
+        height: 5rem;
+        grid-column: span 2;
         color: ${(props) => props.theme['gray-100']};
         align-items: center;
       }

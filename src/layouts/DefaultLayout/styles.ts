@@ -52,14 +52,9 @@ export const LayoutContainer = styled.div`
     }
   }
 
-  @media (min-width: 1200px) {
-    main {
-      margin-inline: auto;
-    }
-  }
-
   @media (min-width: 1600px) {
     main {
+      margin-inline: auto;
       max-width: 75rem;
     }
   }

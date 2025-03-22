@@ -195,10 +195,6 @@ export function TeamDetails() {
     }
   }
 
-  function isPlayer(player: Player | string): player is Player {
-    return typeof player === 'object' && player !== null
-  }
-
   return (
     <TeamDetailsContainer>
       <Header>
@@ -336,76 +332,12 @@ export function TeamDetails() {
                         </p>
                       </div>
                     </div>
-                    <button onClick={() => setActiveStatsContent('highlights')}>
-                      <h3>Destaques do Time</h3>
-                    </button>
+
                     <button
                       onClick={() => setActiveStatsContent('recentGames')}
                     >
                       <h3>Últimos Jogos</h3>
                     </button>
-                  </div>
-                )}
-                {activeStatsContent === 'highlights' && (
-                  <div>
-                    <div className="statsHeader">
-                      <button onClick={() => setActiveStatsContent('default')}>
-                        <CaretLeft size={32} />
-                      </button>
-                      <h3 onClick={() => setActiveStatsContent('default')}>
-                        Destaques do Time
-                      </h3>
-                    </div>
-                    <ul>
-                      <li>
-                        Maior Pontuador:
-                        {isPlayer(team.players[0]) && (
-                          <>
-                            <img
-                              src={
-                                team.players[0].playerImage ||
-                                '/assets/players/default-player-man.png'
-                              }
-                              alt="Maior Pontuador"
-                            />
-                            <strong>{team.players[0].playerName}</strong>
-                          </>
-                        )}
-                        <span>(120 pontos)</span>
-                      </li>
-                      <li>
-                        Maior Bloqueador:
-                        {isPlayer(team.players[4]) && (
-                          <>
-                            <img
-                              src={
-                                team.players[4].playerImage ||
-                                '/assets/players/default-player-man.png'
-                              }
-                              alt="Maior Bloqueador"
-                            />
-                            <strong>{team.players[4].playerName}</strong>
-                          </>
-                        )}
-                        <span>(35 bloqueios)</span>
-                      </li>
-                      <li>
-                        Líder em aces:
-                        {isPlayer(team.players[1]) && (
-                          <>
-                            <img
-                              src={
-                                team.players[1].playerImage ||
-                                '/assets/players/default-player-man.png'
-                              }
-                              alt="Líder em Aces"
-                            />
-                            <strong>{team.players[1].playerName}</strong>
-                          </>
-                        )}
-                        <span>(10 aces)</span>
-                      </li>
-                    </ul>
                   </div>
                 )}
                 {activeStatsContent === 'recentGames' && (
@@ -490,59 +422,6 @@ export function TeamDetails() {
               </div>
             </div>
 
-            <div>
-              <h3>Destaques do Time</h3>
-              <ul>
-                <li>
-                  Maior Pontuador:
-                  {isPlayer(team.players[0]) && (
-                    <>
-                      <img
-                        src={
-                          team.players[0].playerImage ||
-                          '/assets/players/default-player-man.png'
-                        }
-                        alt="Maior Pontuador"
-                      />
-                      <strong>{team.players[0].playerName}</strong>
-                    </>
-                  )}
-                  <span>(120 pontos)</span>
-                </li>
-                <li>
-                  Maior Bloqueador:
-                  {isPlayer(team.players[4]) && (
-                    <>
-                      <img
-                        src={
-                          team.players[4].playerImage ||
-                          '/assets/players/default-player-man.png'
-                        }
-                        alt="Maior Bloqueador"
-                      />
-                      <strong>{team.players[4].playerName}</strong>
-                    </>
-                  )}
-                  <span>(35 bloqueios)</span>
-                </li>
-                <li>
-                  Líder em aces:
-                  {isPlayer(team.players[1]) && (
-                    <>
-                      <img
-                        src={
-                          team.players[1].playerImage ||
-                          '/assets/players/default-player-man.png'
-                        }
-                        alt="Líder em Aces"
-                      />
-                      <strong>{team.players[1].playerName}</strong>
-                    </>
-                  )}
-                  <span>(10 aces)</span>
-                </li>
-              </ul>
-            </div>
             <div>
               <h3>Últimos Jogos</h3>
               <ul>
