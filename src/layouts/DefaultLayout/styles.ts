@@ -51,11 +51,4 @@ export const LayoutContainer = styled.div`
       padding-block: 1rem;
     }
   }
-
-  @media (min-width: 1600px) {
-    main {
-      margin-inline: auto;
-      max-width: 75rem;
-    }
-  }
 `

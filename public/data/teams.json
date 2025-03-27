@@ -1,34 +1,35 @@
 [
   {
-    "id": 1,
+    "id": 11,
     "name": "Aliança",
     "shortName": "ALI",
     "logo": "/assets/teams/Aliança Volei.png",
     "colorPrimary": "#0c4a6e",
+    "category": "Masculino",
     "players": [
       {
-        "playerId": 1,
+        "playerId": 111,
         "playerName": "João",
         "playerPosition": "OPOSTO",
         "playerNumber": "9",
         "playerImage": "/assets/players/aliança/João.png"
       },
       {
-        "playerId": 2,
+        "playerId": 112,
         "playerName": "Igor",
         "playerPosition": "CENTRAL",
         "playerNumber": "14",
         "playerImage": "/assets/players/aliança/Igor.png"
       },
       {
-        "playerId": 3,
+        "playerId": 113,
         "playerName": "Matheus",
         "playerPosition": "PONTEIRO",
         "playerNumber": "5",
         "playerImage": "/assets/players/aliança/Matheus.png"
       },
       {
-        "playerId": 4,
+        "playerId": 114,
         "playerName": "Láu",
         "playerPosition": "PONTEIRO",
         "playerNumber": "1",
@@ -36,70 +37,70 @@
         "isTeamCaptain": true
       },
       {
-        "playerId": 5,
+        "playerId": 115,
         "playerName": "Kildere",
         "playerPosition": "CENTRAL",
         "playerNumber": "10",
         "playerImage": "/assets/players/aliança/Kildere.png"
       },
       {
-        "playerId": 6,
+        "playerId": 116,
         "playerName": "Cláudio",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "26",
         "playerImage": "/assets/players/aliança/Claudio.png"
       },
       {
-        "playerId": 7,
+        "playerId": 117,
         "playerName": "Gabriel M.",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "7",
         "playerImage": "/assets/players/aliança/Gabriel Motta.png"
       },
       {
-        "playerId": 8,
+        "playerId": 118,
         "playerName": "Victor",
         "playerPosition": "PONTEIRO",
         "playerNumber": "19",
         "playerImage": "/assets/players/aliança/Victor.png"
       },
       {
-        "playerId": 9,
+        "playerId": 119,
         "playerName": "Jihed",
         "playerPosition": "PONTEIRO",
         "playerNumber": "21",
         "playerImage": "/assets/players/aliança/Jihed.png"
       },
       {
-        "playerId": 10,
+        "playerId": 1110,
         "playerName": "Greg",
         "playerPosition": "CENTRAL",
         "playerNumber": "22",
         "playerImage": "/assets/players/aliança/Greg.png"
       },
       {
-        "playerId": 11,
+        "playerId": 1111,
         "playerName": "Allyson",
         "playerPosition": "PONTEIRO",
         "playerNumber": "3",
         "playerImage": "/assets/players/aliança/Allyson.png"
       },
       {
-        "playerId": 12,
+        "playerId": 1112,
         "playerName": "Gabriel",
         "playerPosition": "PONTEIRO",
         "playerNumber": "11",
         "playerImage": "/assets/players/aliança/Gabriel Macedo.png"
       },
       {
-        "playerId": 13,
+        "playerId": 1113,
         "playerName": "Kenzo",
         "playerPosition": "OPOSTO",
         "playerNumber": "12",
         "playerImage": "/assets/players/aliança/Kenzo.png"
       },
       {
-        "playerId": 14,
+        "playerId": 1114,
         "playerName": "Hugo",
         "playerPosition": "CENTRAL",
         "playerNumber": "6",
@@ -108,14 +109,15 @@
     ]
   },
   {
-    "id": 2,
+    "id": 12,
     "name": "San Marino",
     "shortName": "SAN",
     "logo": "/assets/teams/San Marino.png",
     "colorPrimary": "#4c1d95",
+    "category": "Masculino",
     "players": [
       {
-        "playerId": 15,
+        "playerId": 121,
         "playerName": "Lucas",
         "playerPosition": "OPOSTO",
         "playerNumber": "11",
@@ -123,35 +125,35 @@
         "isTeamCaptain": true
       },
       {
-        "playerId": 16,
+        "playerId": 122,
         "playerName": "Sampaio",
         "playerPosition": "CENTRAL",
         "playerNumber": "6",
         "playerImage": "/assets/players/san marino/Vitor.png"
       },
       {
-        "playerId": 17,
+        "playerId": 123,
         "playerName": "Solberg",
         "playerPosition": "PONTEIRO",
         "playerNumber": "31",
         "playerImage": "/assets/players/san marino/Solberg.png"
       },
       {
-        "playerId": 18,
+        "playerId": 124,
         "playerName": "Aldo",
         "playerPosition": "PONTEIRO",
         "playerNumber": "2",
         "playerImage": "/assets/players/san marino/Aldo.png"
       },
       {
-        "playerId": 19,
+        "playerId": 125,
         "playerName": "Kezz",
         "playerPosition": "CENTRAL",
         "playerNumber": "8",
         "playerImage": "/assets/players/san marino/Kezz.png"
       },
       {
-        "playerId": 20,
+        "playerId": 126,
         "playerName": "Henze",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "5",
@@ -159,7 +161,7 @@
       }
     ],
     "libero": {
-      "playerId": 21,
+      "playerId": 127,
       "playerName": "Jadson",
       "playerPosition": "LIBERO",
       "playerNumber": "25",
@@ -168,21 +170,22 @@
     }
   },
   {
-    "id": 3,
+    "id": 13,
     "name": "Volei Up",
     "shortName": "VUP",
     "logo": "/assets/teams/Volei Up.png",
     "colorPrimary": "#aa347d",
+    "category": "Masculino",
     "players": [
       {
-        "playerId": 22,
+        "playerId": 131,
         "playerName": "João",
         "playerPosition": "OPOSTO",
         "playerNumber": "11",
         "playerImage": "/assets/players/up/João.png"
       },
       {
-        "playerId": 23,
+        "playerId": 132,
         "playerName": "Wheverton",
         "playerPosition": "CENTRAL",
         "playerNumber": "10",
@@ -190,49 +193,49 @@
         "isTeamCaptain": true
       },
       {
-        "playerId": 24,
+        "playerId": 133,
         "playerName": "Eli",
         "playerPosition": "PONTEIRO",
         "playerNumber": "3",
         "playerImage": "/assets/players/up/Eliziano.png"
       },
       {
-        "playerId": 25,
+        "playerId": 134,
         "playerName": "Franklin",
         "playerPosition": "PONTEIRO",
         "playerNumber": "2",
         "playerImage": "/assets/players/up/Franklin.png"
       },
       {
-        "playerId": 26,
+        "playerId": 135,
         "playerName": "Harry",
         "playerPosition": "CENTRAL",
         "playerNumber": "7",
         "playerImage": "/assets/players/up/Harry.png"
       },
       {
-        "playerId": 27,
+        "playerId": 136,
         "playerName": "Edu",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "83",
         "playerImage": "/assets/players/up/Edu.png"
       },
       {
-        "playerId": 28,
+        "playerId": 137,
         "playerName": "Rodrigo",
         "playerPosition": "PONTEIRO",
         "playerNumber": "11",
         "playerImage": "/assets/players/up/Rodrigo.png"
       },
       {
-        "playerId": 29,
+        "playerId": 138,
         "playerName": "Matheus",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "9",
         "playerImage": "/assets/players/up/Matheus.png"
       },
       {
-        "playerId": 30,
+        "playerId": 139,
         "playerName": "Sérgio",
         "playerPosition": "OPOSTO",
         "playerNumber": "4",
@@ -241,21 +244,22 @@
     ]
   },
   {
-    "id": 4,
+    "id": 14,
     "name": "Neópolis",
     "shortName": "NEO",
     "logo": "/assets/teams/Neopolis Volei.png",
     "colorPrimary": "#0369a1",
+    "category": "Masculino",
     "players": [
       {
-        "playerId": 31,
+        "playerId": 141,
         "playerName": "Adriel",
         "playerPosition": "OPOSTO",
         "playerNumber": "21",
         "playerImage": "/assets/players/neopolis/Adriel.png"
       },
       {
-        "playerId": 32,
+        "playerId": 142,
         "playerName": "Amaro",
         "playerPosition": "CENTRAL",
         "playerNumber": "13",
@@ -263,35 +267,35 @@
         "isTeamCaptain": true
       },
       {
-        "playerId": 33,
+        "playerId": 143,
         "playerName": "Jean",
         "playerPosition": "PONTEIRO",
         "playerNumber": "9",
         "playerImage": "/assets/players/neopolis/Jean.png"
       },
       {
-        "playerId": 34,
+        "playerId": 144,
         "playerName": "Ezequiel",
         "playerPosition": "PONTEIRO",
         "playerNumber": "12",
         "playerImage": "/assets/players/neopolis/Ezequiel.png"
       },
       {
-        "playerId": 35,
+        "playerId": 145,
         "playerName": "Hélio",
         "playerPosition": "CENTRAL",
         "playerNumber": "7",
         "playerImage": "/assets/players/neopolis/Hélio.png"
       },
       {
-        "playerId": 36,
+        "playerId": 146,
         "playerName": "Luan",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "1",
         "playerImage": "/assets/players/neopolis/Luan.png"
       },
       {
-        "playerId": 37,
+        "playerId": 147,
         "playerName": "Mingau",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "8",
@@ -299,7 +303,7 @@
       }
     ],
     "libero": {
-      "playerId": 38,
+      "playerId": 148,
       "playerName": "Rafa",
       "playerPosition": "LIBERO",
       "playerNumber": "6",
@@ -308,35 +312,36 @@
     }
   },
   {
-    "id": 5,
+    "id": 15,
     "name": "Gela Volei",
     "shortName": "GEL",
     "logo": "/assets/teams/Gela Volei.png",
     "colorPrimary": "#0c31a8",
+    "category": "Masculino",
     "players": [
       {
-        "playerId": 39,
+        "playerId": 151,
         "playerName": "Cabral",
         "playerPosition": "OPOSTO",
         "playerNumber": "17",
         "playerImage": "/assets/players/gela/Cabral.png"
       },
       {
-        "playerId": 40,
+        "playerId": 152,
         "playerName": "Abbott",
         "playerPosition": "CENTRAL",
         "playerNumber": "10",
         "playerImage": "/assets/players/gela/Abbott.png"
       },
       {
-        "playerId": 41,
+        "playerId": 153,
         "playerName": "Robson",
         "playerPosition": "PONTEIRO",
         "playerNumber": "11",
         "playerImage": "/assets/players/gela/Robson.png"
       },
       {
-        "playerId": 42,
+        "playerId": 154,
         "playerName": "Duda",
         "playerPosition": "PONTEIRO",
         "playerNumber": "9",
@@ -344,35 +349,35 @@
         "isTeamCaptain": true
       },
       {
-        "playerId": 43,
+        "playerId": 155,
         "playerName": "Pedro P.",
         "playerPosition": "CENTRAL",
         "playerNumber": "80",
         "playerImage": "/assets/players/gela/Pedro Paulo.png"
       },
       {
-        "playerId": 44,
+        "playerId": 156,
         "playerName": "Jay",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "12",
         "playerImage": "/assets/players/gela/Jay.png"
       },
       {
-        "playerId": 45,
+        "playerId": 157,
         "playerName": "Fúlvio",
         "playerPosition": "PONTEIRO",
         "playerNumber": "7",
         "playerImage": "/assets/players/gela/Fúlvio.png"
       },
       {
-        "playerId": 46,
+        "playerId": 158,
         "playerName": "Gabriel",
         "playerPosition": "PONTEIRO",
         "playerNumber": "5",
         "playerImage": "/assets/players/gela/Gabriel.png"
       },
       {
-        "playerId": 47,
+        "playerId": 159,
         "playerName": "Gustavo",
         "playerPosition": "PONTEIRO",
         "playerNumber": "8",
@@ -380,7 +385,7 @@
       }
     ],
     "libero": {
-      "playerId": 48,
+      "playerId": 1510,
       "playerName": "Yuri",
       "playerPosition": "LIBERO",
       "playerNumber": "3",
@@ -389,14 +394,15 @@
     }
   },
   {
-    "id": 6,
+    "id": 16,
     "name": "Volei União",
     "shortName": "UNI",
     "logo": "/assets/teams/Volei União.png",
     "colorPrimary": "#14532d",
+    "category": "Masculino",
     "players": [
       {
-        "playerId": 49,
+        "playerId": 161,
         "playerName": "Igor",
         "playerPosition": "OPOSTO",
         "playerNumber": "7",
@@ -404,49 +410,49 @@
         "isTeamCaptain": true
       },
       {
-        "playerId": 50,
+        "playerId": 162,
         "playerName": "Salgado",
         "playerPosition": "CENTRAL",
         "playerNumber": "8",
         "playerImage": "/assets/players/união/Salgado.png"
       },
       {
-        "playerId": 51,
+        "playerId": 163,
         "playerName": "Mateus",
         "playerPosition": "PONTEIRO",
         "playerNumber": "13",
         "playerImage": "/assets/players/união/Mateus.png"
       },
       {
-        "playerId": 52,
+        "playerId": 164,
         "playerName": "Pedro Igor",
         "playerPosition": "PONTEIRO",
         "playerNumber": "15",
         "playerImage": "/assets/players/união/Pedro Igor.png"
       },
       {
-        "playerId": 53,
+        "playerId": 165,
         "playerName": "L. Eduardo",
         "playerPosition": "CENTRAL",
         "playerNumber": "10",
         "playerImage": "/assets/players/união/Luiz Eduardo.png"
       },
       {
-        "playerId": 54,
+        "playerId": 166,
         "playerName": "Gabriel",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "2",
         "playerImage": "/assets/players/união/Gabriel.png"
       },
       {
-        "playerId": 55,
+        "playerId": 167,
         "playerName": "Murillo",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "12",
         "playerImage": "/assets/players/união/Murillo.png"
       },
       {
-        "playerId": 56,
+        "playerId": 168,
         "playerName": "Luiz Felipe",
         "playerPosition": "OPOSTO",
         "playerNumber": "11",
@@ -454,11 +460,339 @@
       }
     ],
     "libero": {
-      "playerId": 57,
+      "playerId": 169,
       "playerName": "Leonardo",
       "playerPosition": "LIBERO",
       "playerNumber": "6",
       "playerImage": "/assets/players/união/Leonardo.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 21,
+    "name": "Aliança",
+    "shortName": "ALI",
+    "logo": "/assets/teams/Aliança Volei.png",
+    "colorPrimary": "#0ea5e9",
+    "category": "Feminino",
+    "players": [
+      {
+        "playerId": 211,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "21",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 212,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 213,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 214,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "14",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 215,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "11",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 216,
+        "playerName": "Levantadora",
+        "playerPosition": "LEVANTADORA",
+        "playerNumber": "7",
+        "playerImage": "/assets/players/default-player-woman.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerId": 217,
+        "playerName": "Líbero",
+        "playerPosition": "LIBERO",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 218,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "33",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 219,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "27",
+        "playerImage": "/assets/players/default-player-woman.png"
+      }
+    ],
+    "libero": {
+      "playerId": 2110,
+      "playerName": "Líbero",
+      "playerPosition": "LIBERO",
+      "playerNumber": "2",
+      "playerImage": "/assets/players/default-player-woman.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 22,
+    "name": "Neópolis",
+    "shortName": "Neo",
+    "logo": "/assets/teams/Neopolis Volei.png",
+    "colorPrimary": "#a0c9ff",
+    "category": "Feminino",
+    "players": [
+      {
+        "playerId": 221,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 222,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 223,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "1",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 224,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "5",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 225,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "4",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 226,
+        "playerName": "Levantadora",
+        "playerPosition": "LEVANTADORA",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/default-player-woman.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerId": 227,
+        "playerName": "Líbero",
+        "playerPosition": "LIBERO",
+        "playerNumber": "6",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 228,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "13",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 229,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "21",
+        "playerImage": "/assets/players/default-player-woman.png"
+      }
+    ],
+    "libero": {
+      "playerId": 2210,
+      "playerName": "Líbero",
+      "playerPosition": "LIBERO",
+      "playerNumber": "3",
+      "playerImage": "/assets/players/default-player-woman.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 23,
+    "name": "San Marino",
+    "shortName": "SAN",
+    "logo": "/assets/teams/San Marino.png",
+    "colorPrimary": "#704095",
+    "category": "Feminino",
+    "players": [
+      {
+        "playerId": 231,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 232,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 233,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "1",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 234,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "5",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 235,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "4",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 236,
+        "playerName": "Levantadora",
+        "playerPosition": "LEVANTADORA",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/default-player-woman.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerId": 237,
+        "playerName": "Líbero",
+        "playerPosition": "LIBERO",
+        "playerNumber": "6",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 238,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "13",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 239,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "21",
+        "playerImage": "/assets/players/default-player-woman.png"
+      }
+    ],
+    "libero": {
+      "playerId": 2310,
+      "playerName": "Líbero",
+      "playerPosition": "LIBERO",
+      "playerNumber": "3",
+      "playerImage": "/assets/players/default-player-woman.png",
+      "substitutes": [4]
+    }
+  },
+  {
+    "id": 24,
+    "name": "Volei Up",
+    "shortName": "VUP",
+    "logo": "/assets/teams/Volei Up.png",
+    "colorPrimary": "#0a4180",
+    "category": "Feminino",
+    "players": [
+      {
+        "playerId": 241,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "10",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 242,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "9",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 243,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "1",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 244,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "5",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 245,
+        "playerName": "Central",
+        "playerPosition": "CENTRAL",
+        "playerNumber": "4",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 246,
+        "playerName": "Levantadora",
+        "playerPosition": "LEVANTADORA",
+        "playerNumber": "8",
+        "playerImage": "/assets/players/default-player-woman.png",
+        "isTeamCaptain": true
+      },
+      {
+        "playerId": 247,
+        "playerName": "Líbero",
+        "playerPosition": "LIBERO",
+        "playerNumber": "6",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 248,
+        "playerName": "Oposta",
+        "playerPosition": "OPOSTA",
+        "playerNumber": "13",
+        "playerImage": "/assets/players/default-player-woman.png"
+      },
+      {
+        "playerId": 249,
+        "playerName": "Ponteira",
+        "playerPosition": "PONTEIRA",
+        "playerNumber": "21",
+        "playerImage": "/assets/players/default-player-woman.png"
+      }
+    ],
+    "libero": {
+      "playerId": 2410,
+      "playerName": "Líbero",
+      "playerPosition": "LIBERO",
+      "playerNumber": "3",
+      "playerImage": "/assets/players/default-player-woman.png",
       "substitutes": [4]
     }
   }

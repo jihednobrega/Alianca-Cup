@@ -68,6 +68,10 @@ export const RoundHighlightsContainer = styled.main`
       }
     }
   }
+
+  @media (min-width: 1600px) {
+    margin-inline: auto !important;
+  }
 `
 
 export const Header = styled.div`
@@ -105,6 +109,10 @@ export const Main = styled.div`
   background: url('/assets/volleyball-court.jpg') no-repeat center center;
   background-size: cover;
 
+  @media (max-width: 375px) {
+    height: auto;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     background: url('/assets/volleyball-court-desk.jpg') no-repeat center 100%;
     background-size: cover;
@@ -125,6 +133,11 @@ export const MainSquad = styled.div`
   padding: 0 1rem 4.5rem;
   justify-content: space-evenly;
   margin-top: auto;
+
+  @media (max-width: 375px) {
+    padding: 0 1rem 3.5rem;
+    scale: 0.8;
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     gap: 2rem;

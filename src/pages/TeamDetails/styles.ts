@@ -109,6 +109,10 @@ export const TeamDetailsContainer = styled.main`
       overflow-x: auto;
     }
   }
+
+  @media (min-width: 1600px) {
+    margin-inline: auto !important;
+  }
 `
 
 export const Header = styled.div`
@@ -166,6 +170,11 @@ export const MainSquad = styled.div`
   justify-content: space-evenly;
   margin-top: auto;
 
+  @media (max-width: 375px) {
+    padding: 0 1rem 3.5rem;
+    scale: 0.8;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     gap: 2rem;
     padding: 0 1rem 8rem;
@@ -220,7 +229,8 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
   }
 
   .subsContent {
-    padding: 2rem 1rem 6.5rem;
+    padding: 1rem 1rem 6.5rem;
+    margin-top: 1rem;
     overflow-y: auto;
     background-color: ${(props) => props.theme['gray-800']};
     color: ${(props) => props.theme['gray-100']};
@@ -265,7 +275,8 @@ export const GuidesContainer = styled.div<{ isOpen: boolean }>`
   }
 
   .statsContent {
-    padding: 2rem 1rem 6.5rem;
+    padding: 1.5rem 1rem 6.5rem;
+    margin-top: 0.5rem;
     overflow-y: auto;
     background-color: ${(props) => props.theme['gray-800']};
     color: ${(props) => props.theme['gray-100']};

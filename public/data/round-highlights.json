@@ -2,31 +2,41 @@
   {
     "roundId": 1,
     "roundName": "1º Rodada",
-    "players": [
-      { "playerId": 1 },
-      { "playerId": 23 },
-      { "playerId": 33 },
-      { "playerId": 52 },
-      { "playerId": 16 },
-      { "playerId": 6 }
+    "male-players": [
+      { "playerId": 121 },
+      { "playerId": 155 },
+      { "playerId": 144 },
+      { "playerId": 133 },
+      { "playerId": 122 },
+      { "playerId": 166 }
     ],
-    "libero": {
-      "playerId": 38
-    }
+    "female-players": [
+      { "playerId": 241 },
+      { "playerId": 232 },
+      { "playerId": 223 },
+      { "playerId": 214 },
+      { "playerId": 225 },
+      { "playerId": 216 }
+    ]
   },
   {
     "roundId": 2,
     "roundName": "2º Rodada",
-    "players": [
-      { "playerId": 15 },
-      { "playerId": 43 },
-      { "playerId": 11 },
-      { "playerId": 51 },
-      { "playerId": 5 },
-      { "playerId": 54 }
+    "male-players": [
+      { "playerId": 111 },
+      { "playerId": 132 },
+      { "playerId": 164 },
+      { "playerId": 143 },
+      { "playerId": 1510 },
+      { "playerId": 116 }
     ],
-    "libero": {
-      "playerId": 48
-    }
+    "female-players": [
+      { "playerId": 231 },
+      { "playerId": 212 },
+      { "playerId": 213 },
+      { "playerId": 244 },
+      { "playerId": 245 },
+      { "playerId": 226 }
+    ]
   }
 ]

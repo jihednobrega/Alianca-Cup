@@ -18,6 +18,7 @@ interface Game {
   teamA: number
   teamB: number
   time: string
+  category: string
   score?: { teamA: number; teamB: number }
   sets?: string[]
 }
@@ -164,7 +165,19 @@ export function Schedule() {
                       <GameCard key={game.id}>
                         <div>
                           <span className="localAndTime">
-                            Edgar Barbosa - {game.time || 'Horário indefinido'}
+                            <span
+                              style={{
+                                color:
+                                  game.category === 'Masculino'
+                                    ? '#7dd3fc'
+                                    : '#f9a8d4',
+                              }}
+                            >
+                              {' '}
+                              {game.category}{' '}
+                            </span>{' '}
+                            - Edgar Barbosa -{' '}
+                            {game.time || 'Horário indefinido'}
                           </span>
                         </div>
                         <div className="matchResult">

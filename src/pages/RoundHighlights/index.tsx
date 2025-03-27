@@ -1,148 +1,3 @@
-// import { useEffect, useRef, useState } from 'react'
-// import { PlayerCard } from '../../components/PlayerCard'
-// import { ArrowsClockwise, CaretDown, CaretUp } from '@phosphor-icons/react'
-// import {
-//   RoundHighlightsContainer,
-//   Header,
-//   Main,
-//   GuidesContainer,
-//   MainSquad,
-//   PlayerToggleButton,
-// } from './styles'
-
-// type Player = {
-//   playerId: number
-//   playerName: string
-//   playerPosition: string
-//   playerNumber: string
-//   playerImage: string
-//   isTeamCaptain?: boolean
-// }
-
-// type Team = {
-//   id: number
-//   name: string
-//   logo: string
-//   colorPrimary: string
-//   players: Player[]
-// }
-
-// type RoundData = {
-//   roundId: number
-//   roundName: string
-//   players: { playerId: number }[]
-//   libero: { playerId: number }
-// }
-
-// export function RoundHighlights() {
-//   const [activeTab, setActiveTab] = useState<
-//     | 'first-round'
-//     | 'second-round'
-//     | 'third-round'
-//     | 'fourth-round'
-//     | 'fifth-round'
-//     | null
-//   >('first-round')
-
-//   const toggleTab = (
-//     tab:
-//       | 'first-round'
-//       | 'second-round'
-//       | 'third-round'
-//       | 'fourth-round'
-//       | 'fifth-round',
-//   ) => {
-//     setActiveTab(tab)
-//   }
-//   return (
-//     <RoundHighlightsContainer>
-//       <Header>
-//         <h1>Destaques da rodada</h1>
-//       </Header>
-
-//       <Main>
-//         <MainSquad></MainSquad>
-//         <GuidesContainer>
-//           <div className="buttons">
-//             <button
-//               onClick={() => toggleTab('first-round')}
-//               className={activeTab === 'first-round' ? 'active' : ''}
-//             >
-//               1º rodada
-//             </button>
-
-//             <button
-//               onClick={() => toggleTab('second-round')}
-//               className={activeTab === 'second-round' ? 'active' : ''}
-//             >
-//               2º rodada
-//             </button>
-
-//             <button
-//               onClick={() => toggleTab('third-round')}
-//               className={activeTab === 'third-round' ? 'active' : ''}
-//             >
-//               3º rodada
-//             </button>
-
-//             <button
-//               onClick={() => toggleTab('fourth-round')}
-//               className={activeTab === 'fourth-round' ? 'active' : ''}
-//             >
-//               4º rodada
-//             </button>
-
-//             <button
-//               onClick={() => toggleTab('fifth-round')}
-//               className={activeTab === 'fifth-round' ? 'active' : ''}
-//             >
-//               5º rodada
-//             </button>
-//           </div>
-//         </GuidesContainer>
-//       </Main>
-//       <div className="desk-content">
-//         <div className="buttons">
-//           <button
-//             onClick={() => toggleTab('first-round')}
-//             className={activeTab === 'first-round' ? 'active' : ''}
-//           >
-//             1º rodada
-//           </button>
-
-//           <button
-//             onClick={() => toggleTab('second-round')}
-//             className={activeTab === 'second-round' ? 'active' : ''}
-//           >
-//             2º rodada
-//           </button>
-
-//           <button
-//             onClick={() => toggleTab('third-round')}
-//             className={activeTab === 'third-round' ? 'active' : ''}
-//           >
-//             3º rodada
-//           </button>
-
-//           <button
-//             onClick={() => toggleTab('fourth-round')}
-//             className={activeTab === 'fourth-round' ? 'active' : ''}
-//           >
-//             4º rodada
-//           </button>
-
-//           <button
-//             onClick={() => toggleTab('fifth-round')}
-//             className={activeTab === 'fifth-round' ? 'active' : ''}
-//           >
-//             5º rodada
-//           </button>
-//         </div>
-//       </div>
-//     </RoundHighlightsContainer>
-//   )
-// }
-
 import { useEffect, useState } from 'react'
 import { PlayerCard } from '../../components/PlayerCard'
 import {
@@ -152,6 +7,7 @@ import {
   GuidesContainer,
   MainSquad,
 } from './styles'
+import { CategoryToggleButton } from '../../components/CategoryToggleButton'
 
 type Player = {
   playerId: number
@@ -170,14 +26,17 @@ type PlayerWithTeam = Player & {
 type RoundData = {
   roundId: number
   roundName: string
-  players: { playerId: number }[]
-  libero: { playerId: number }
+  'male-players': { playerId: number }[]
+  'female-players': { playerId: number }[]
 }
 
 export function RoundHighlights() {
   const [rounds, setRounds] = useState<RoundData[]>([])
   const [selectedRoundId, setSelectedRoundId] = useState<number | null>(null)
   const [players, setPlayers] = useState<PlayerWithTeam[]>([])
+  const [selectedCategory, setSelectedCategory] = useState<'male' | 'female'>(
+    'male',
+  )
 
   useEffect(() => {
     async function fetchRounds() {
@@ -218,7 +77,12 @@ export function RoundHighlights() {
         const teamsData = await fetch('/data/teams.json').then((res) =>
           res.json(),
         )
-        const selectedPlayers = selectedRound.players
+
+        const highlightsKey =
+          selectedCategory === 'male' ? 'male-players' : 'female-players'
+        const selectedPlayersRefs = selectedRound[highlightsKey]
+
+        const selectedPlayers = selectedPlayersRefs
           .map((playerRef) => {
             for (const team of teamsData) {
               const foundPlayer = team.players.find(
@@ -227,6 +91,20 @@ export function RoundHighlights() {
               if (foundPlayer) {
                 return {
                   ...foundPlayer,
+                  teamName: team.name,
+                  teamLogo: team.logo,
+                  colorPrimary: team.colorPrimary,
+                } as PlayerWithTeam
+              }
+
+              if (team.libero && team.libero.playerId === playerRef.playerId) {
+                const libero = team.libero
+                return {
+                  playerId: libero.playerId,
+                  playerName: libero.playerName,
+                  playerPosition: libero.playerPosition,
+                  playerNumber: libero.playerNumber,
+                  playerImage: libero.playerImage,
                   teamName: team.name,
                   teamLogo: team.logo,
                   colorPrimary: team.colorPrimary,
@@ -247,7 +125,7 @@ export function RoundHighlights() {
     }
 
     fetchPlayers()
-  }, [selectedRoundId, rounds])
+  }, [selectedRoundId, rounds, selectedCategory])
 
   return (
     <RoundHighlightsContainer>
@@ -256,6 +134,11 @@ export function RoundHighlights() {
       </Header>
 
       <Main>
+        <CategoryToggleButton
+          variant="default"
+          category={selectedCategory}
+          onChangeCategory={setSelectedCategory}
+        />
         <MainSquad>
           {players.map((player, index) => (
             <PlayerCard

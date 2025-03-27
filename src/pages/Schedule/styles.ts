@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ScheduleContainer = styled.div`
   margin-inline: -1rem;
-  padding-bottom: 8rem;
+  padding-bottom: 9rem;
   text-align: center;
 
   h1 {
@@ -74,7 +74,7 @@ export const MonthSection = styled.div`
     font-family: 'Roboto Mono', monospace;
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: ${(props) => props.theme['blue-500']};
+    color: ${(props) => props.theme['gray-100']};
   }
 
   .games-list {

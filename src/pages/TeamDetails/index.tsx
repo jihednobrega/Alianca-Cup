@@ -82,19 +82,98 @@ export function TeamDetails() {
         const matchesData = await fetch('/data/matches.json').then((res) =>
           res.json(),
         )
-        const calculatedStats = calculateTeamStats(teamsData, matchesData)
-        const selectedTeamStats = calculatedStats.find(
-          (team) => team.id === Number(teamId),
+
+        // 🔥 Encontrar o time selecionado
+        const selectedTeam = teamsData.find(
+          (team: any) => team.id === Number(teamId),
         )
-        const sorted = sortTeams(calculatedStats, matchesData)
-        const teamPosition =
-          sorted.findIndex((team) => team.id === Number(teamId)) + 1
+        if (!selectedTeam) {
+          console.error('Time não encontrado!')
+          setTeam(null)
+          return
+        }
+
+        // 🔥 Filtrar os times da mesma categoria do time selecionado
+        const filteredTeams = teamsData.filter(
+          (team: any) => team.category === selectedTeam.category,
+        )
+
+        // 🔥 Transformar os jogos em uma lista plana
+        const allGames = matchesData.rounds
+          .flatMap((round: Round) => round.games)
+          .filter((game: any) => game !== undefined)
+
+        const formattedMatchesData = {
+          rounds: [{ round: 1, date: '2025-03-01', games: allGames }],
+        }
+
+        if (filteredTeams.length >= 8) {
+          // 🔥 Dividir os times em grupos
+          const half = Math.ceil(filteredTeams.length / 2)
+          const groupA = filteredTeams.slice(0, half)
+          const groupB = filteredTeams.slice(half)
+
+          // 🔥 Calcular estatísticas separadamente para cada grupo
+          const statsGroupA = calculateTeamStats(groupA, formattedMatchesData)
+          const statsGroupB = calculateTeamStats(groupB, formattedMatchesData)
+
+          // 🔥 Ordenar os grupos individualmente
+          const sortedGroupA = sortTeams(statsGroupA, allGames)
+          const sortedGroupB = sortTeams(statsGroupB, allGames)
+
+          // 🔥 Encontrar o time no grupo correto e definir a posição
+          let teamInGroupA = sortedGroupA.find(
+            (team: any) => team.id === Number(teamId),
+          )
+          let teamInGroupB = sortedGroupB.find(
+            (team: any) => team.id === Number(teamId),
+          )
+
+          if (teamInGroupA) {
+            setTeamStats(teamInGroupA)
+            setTeamPosition(
+              sortedGroupA.findIndex(
+                (team: any) => team.id === Number(teamId),
+              ) + 1,
+            )
+            setTotalTeams(sortedGroupA.length)
+          } else if (teamInGroupB) {
+            setTeamStats(teamInGroupB)
+            setTeamPosition(
+              sortedGroupB.findIndex(
+                (team: any) => team.id === Number(teamId),
+              ) + 1,
+            )
+            setTotalTeams(sortedGroupB.length)
+          } else {
+            setTeamStats(null)
+          }
+        } else {
+          // 🔥 Calcular estatísticas para grupo único
+          const calculatedStats = calculateTeamStats(
+            filteredTeams,
+            formattedMatchesData,
+          )
+          const sortedTeams = sortTeams(calculatedStats, allGames)
+
+          const selectedTeamStats = sortedTeams.find(
+            (team: any) => team.id === Number(teamId),
+          )
+
+          if (selectedTeamStats) {
+            setTeamStats(selectedTeamStats)
+            setTeamPosition(
+              sortedTeams.findIndex((team: any) => team.id === Number(teamId)) +
+                1,
+            )
+            setTotalTeams(sortedTeams.length)
+          } else {
+            setTeamStats(null)
+          }
+        }
 
         setTeams(teamsData)
-        setMatches(matchesData.rounds.flatMap((round: Round) => round.games))
-        setTeamStats(selectedTeamStats)
-        setTotalTeams(teamsData.length)
-        setTeamPosition(teamPosition)
+        setMatches(allGames)
       } catch (error) {
         console.error('Erro ao carregar as estatísticas:', error)
       }
@@ -283,10 +362,7 @@ export function TeamDetails() {
                     playerName={player.playerName}
                     playerPosition={player.playerPosition}
                     playerNumber={player.playerNumber}
-                    playerImage={
-                      player.playerImage ||
-                      '/assets/players/default-player-man.png'
-                    }
+                    playerImage={player.playerImage}
                     isTeamCaptain={player.isTeamCaptain}
                   />
                 ) : (

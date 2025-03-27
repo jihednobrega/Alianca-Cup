@@ -4,13 +4,26 @@ import { useEffect, useState } from 'react'
 
 export function Teams() {
   const [teams, setTeams] = useState<any[]>([])
+  const [maleTeams, setMaleTeams] = useState<any[]>([])
+  const [femaleTeams, setFemaleTeams] = useState<any[]>([])
 
   useEffect(() => {
     async function fetchTeams() {
       try {
-        const response = await fetch('/data/teams.json')
-        const data = await response.json()
-        setTeams(data)
+        const teamsData = await fetch('/data/teams.json').then((res) =>
+          res.json(),
+        )
+
+        const maleTeamsData = teamsData.filter(
+          (team: any) => team.category === 'Masculino',
+        )
+        const femaleTeamsData = teamsData.filter(
+          (team: any) => team.category === 'Feminino',
+        )
+
+        setTeams(teamsData)
+        setMaleTeams(maleTeamsData)
+        setFemaleTeams(femaleTeamsData)
       } catch (error) {
         console.error('Erro ao carregar os dados das equipes:', error)
       }
@@ -21,8 +34,21 @@ export function Teams() {
   return (
     <TeamsContainer>
       <h1>Equipes Participantes</h1>
+
+      <h2>Masculino</h2>
       <div className="teams-list">
-        {teams.map((team) => (
+        {maleTeams.map((team) => (
+          <TeamCard key={team.id}>
+            <Link to={`/teams/${team.id}`}>
+              <img src={team.logo} alt={`Logo do ${team.name}`} />
+            </Link>
+          </TeamCard>
+        ))}
+      </div>
+
+      <h2>Feminino</h2>
+      <div className="teams-list">
+        {femaleTeams.map((team) => (
           <TeamCard key={team.id}>
             <Link to={`/teams/${team.id}`}>
               <img src={team.logo} alt={`Logo do ${team.name}`} />

@@ -4,6 +4,7 @@ export const RankingContainer = styled.main`
   max-width: 46rem;
   flex: 1;
   padding-top: 1rem;
+  padding-bottom: 9rem;
 
   display: flex;
   flex-direction: column;
@@ -19,11 +20,25 @@ export const RankingContainer = styled.main`
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     max-width: 49rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 1300px) {
+    margin-inline: auto !important;
   }
 `
 
-export const RankingList = styled.div`
-  margin-top: 2rem;
+export const RankingList = styled.div<{ isDivided: boolean }>`
+  margin-top: ${({ isDivided }) => (isDivided ? '0.5rem' : '3rem')};
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .groupContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
   .mainTable {
     display: flex;
@@ -33,6 +48,10 @@ export const RankingList = styled.div`
       max-width: 9rem;
       width: 100%;
       border-collapse: collapse;
+
+      thead {
+        height: 3.5rem;
+      }
 
       th {
         background-color: ${(props) => props.theme['gray-600']};
@@ -99,18 +118,34 @@ export const RankingList = styled.div`
       table {
         th {
           &:last-child {
-            border-top-right-radius: 0.5rem;
+            padding: 1rem 0.2rem 1rem 1rem;
           }
         }
         tr {
-          &:last-child {
-            td {
-              &:last-child {
-                border-bottom-right-radius: 0.5rem;
-              }
+          td {
+            &:last-child {
+              padding-inline: 1rem 0.2rem;
             }
           }
         }
+      }
+    }
+
+    .table-padding {
+      min-width: 1rem;
+      width: 1rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+
+      & .title-padding {
+        width: 100%;
+        height: 3.5rem;
+        background-color: ${(props) => props.theme['gray-600']};
+      }
+
+      & .stats-padding {
+        width: 100%;
+        height: 100%;
+        background-color: ${(props) => props.theme['gray-700']};
       }
     }
 
@@ -163,7 +198,6 @@ export const Legend = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
 
   font-size: 0.75rem;
   font-style: italic;

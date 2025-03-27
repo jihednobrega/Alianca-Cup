@@ -19,10 +19,10 @@ export const ChampionshipTeamContainer = styled.main`
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     display: grid;
     grid-template-areas:
-      'header header'
-      'squad squad'
+      'header .'
+      'squad .'
       'subs subs';
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: 2.5rem 1fr 11.25rem;
     gap: 1rem;
 
@@ -94,6 +94,11 @@ export const MainSquad = styled.div`
   padding: 0 1rem 6.5rem;
   justify-content: space-evenly;
   margin-top: auto;
+
+  @media (max-width: 375px) {
+    padding: 0 1rem 3.5rem;
+    scale: 0.8;
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     gap: 2rem;

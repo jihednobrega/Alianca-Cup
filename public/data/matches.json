@@ -2,29 +2,32 @@
   "rounds": [
     {
       "round": 1,
-      "date": "2025-02-16",
+      "date": "2025-04-20",
       "games": [
         {
-          "id": 1,
-          "time": "16:00",
-          "teamA": 1,
-          "teamB": 2,
+          "id": 11,
+          "time": "15:00",
+          "category": "Masculino",
+          "teamA": 11,
+          "teamB": 12,
           "score": { "teamA": 2, "teamB": 0 },
           "sets": ["25-20", "25-22"]
         },
         {
-          "id": 2,
-          "time": "18:00",
-          "teamA": 3,
-          "teamB": 4,
+          "id": 12,
+          "time": "16:00",
+          "category": "Masculino",
+          "teamA": 13,
+          "teamB": 14,
           "score": { "teamA": 1, "teamB": 2 },
           "sets": ["20-25", "25-23", "10-15"]
         },
         {
-          "id": 3,
-          "time": "20:00",
-          "teamA": 5,
-          "teamB": 6,
+          "id": 13,
+          "time": "17:00",
+          "category": "Masculino",
+          "teamA": 15,
+          "teamB": 16,
           "score": { "teamA": 2, "teamB": 1 },
           "sets": ["25-21", "23-25", "15-10"]
         }
@@ -32,59 +35,101 @@
     },
     {
       "round": 2,
-      "date": "2025-03-09",
+      "date": "2025-05-04",
       "games": [
         {
-          "id": 4,
-          "time": "16:00",
-          "teamA": 4,
-          "teamB": 6,
+          "id": 21,
+          "time": "15:00",
+          "category": "Masculino",
+          "teamA": 14,
+          "teamB": 16,
           "score": { "teamA": 2, "teamB": 1 },
           "sets": ["25-15", "18-25", "15-13"]
         },
         {
-          "id": 5,
-          "time": "18:00",
-          "teamA": 5,
-          "teamB": 2,
+          "id": 22,
+          "time": "16:00",
+          "category": "Masculino",
+          "teamA": 15,
+          "teamB": 12,
           "score": { "teamA": 1, "teamB": 2 },
           "sets": ["21-25", "25-20", "13-15"]
         },
         {
-          "id": 6,
-          "time": "20:00",
-          "teamA": 1,
-          "teamB": 3,
+          "id": 23,
+          "time": "17:00",
+          "category": "Masculino",
+          "teamA": 11,
+          "teamB": 13,
           "score": { "teamA": 2, "teamB": 0 },
           "sets": ["25-21", "27-25"]
+        },
+        {
+          "id": 24,
+          "time": "18:00",
+          "category": "Feminino",
+          "teamA": 21,
+          "teamB": 22,
+          "score": { "teamA": 2, "teamB": 1 },
+          "sets": ["25-21", "23-25", "15-10"]
+        },
+        {
+          "id": 25,
+          "time": "19:00",
+          "category": "Feminino",
+          "teamA": 23,
+          "teamB": 24,
+          "score": { "teamA": 1, "teamB": 2 },
+          "sets": ["25-18", "21-25", "15-17"]
         }
       ]
     },
     {
       "round": 3,
-      "date": "2025-03-23",
+      "date": "2025-05-18",
       "games": [
         {
-          "id": 7,
+          "id": 31,
+          "time": "15:00",
+          "category": "Masculino",
+          "teamA": 11,
+          "teamB": 14,
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 32,
           "time": "16:00",
-          "teamA": 1,
-          "teamB": 4,
+          "category": "Masculino",
+          "teamA": 16,
+          "teamB": 12,
           "score": {},
           "sets": []
         },
         {
-          "id": 8,
+          "id": 33,
+          "time": "17:00",
+          "category": "Masculino",
+          "teamA": 15,
+          "teamB": 13,
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 34,
           "time": "18:00",
-          "teamA": 6,
-          "teamB": 2,
+          "category": "Feminino",
+          "teamA": 22,
+          "teamB": 24,
           "score": {},
           "sets": []
         },
         {
-          "id": 9,
-          "time": "20:00",
-          "teamA": 5,
-          "teamB": 3,
+          "id": 35,
+          "time": "19:00",
+          "category": "Feminino",
+          "teamA": 23,
+          "teamB": 21,
           "score": {},
           "sets": []
         }
@@ -92,29 +137,50 @@
     },
     {
       "round": 4,
-      "date": "2025-04-06",
+      "date": "2025-06-01",
       "games": [
         {
-          "id": 10,
+          "id": 41,
+          "time": "15:00",
+          "category": "Masculino",
+          "teamA": 13,
+          "teamB": 16,
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 42,
           "time": "16:00",
-          "teamA": 3,
-          "teamB": 6,
+          "category": "Masculino",
+          "teamA": 11,
+          "teamB": 15,
           "score": {},
           "sets": []
         },
         {
-          "id": 11,
+          "id": 43,
+          "time": "17:00",
+          "category": "Masculino",
+          "teamA": 12,
+          "teamB": 14,
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 44,
           "time": "18:00",
-          "teamA": 1,
-          "teamB": 5,
+          "category": "Feminino",
+          "teamA": 21,
+          "teamB": 24,
           "score": {},
           "sets": []
         },
         {
-          "id": 12,
-          "time": "20:00",
-          "teamA": 2,
-          "teamB": 4,
+          "id": 45,
+          "time": "19:00",
+          "category": "Feminino",
+          "teamA": 22,
+          "teamB": 23,
           "score": {},
           "sets": []
         }
@@ -122,29 +188,32 @@
     },
     {
       "round": 5,
-      "date": "2025-04-20",
+      "date": "2025-06-15",
       "games": [
         {
-          "id": 13,
+          "id": 51,
+          "time": "15:00",
+          "category": "Masculino",
+          "teamA": 14,
+          "teamB": 15,
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 52,
           "time": "16:00",
-          "teamA": 4,
-          "teamB": 5,
+          "category": "Masculino",
+          "teamA": 13,
+          "teamB": 12,
           "score": {},
           "sets": []
         },
         {
-          "id": 14,
-          "time": "18:00",
-          "teamA": 3,
-          "teamB": 2,
-          "score": {},
-          "sets": []
-        },
-        {
-          "id": 15,
-          "time": "20:00",
-          "teamA": 1,
-          "teamB": 6,
+          "id": 53,
+          "time": "17:00",
+          "category": "Masculino",
+          "teamA": 11,
+          "teamB": 16,
           "score": {},
           "sets": []
         }
@@ -152,11 +221,21 @@
     },
     {
       "round": "Disputa de 3º",
-      "date": "2025-05-04",
+      "date": "2025-06-29",
       "games": [
         {
-          "id": 13,
-          "time": "16:00",
+          "id": 1999,
+          "time": "15:00",
+          "category": "Masculino",
+          "teamA": "3º Fase de grupos",
+          "teamB": "4º Fase de grupos",
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 2999,
+          "time": "17:00",
+          "category": "Feminino",
           "teamA": "3º Fase de grupos",
           "teamB": "4º Fase de grupos",
           "score": {},
@@ -166,11 +245,21 @@
     },
     {
       "round": "Final",
-      "date": "2025-05-04",
+      "date": "2025-06-29",
       "games": [
         {
-          "id": 14,
+          "id": 11000,
+          "time": "16:00",
+          "category": "Masculino",
+          "teamA": "1º Fase de grupos",
+          "teamB": "2º Fase de grupos",
+          "score": {},
+          "sets": []
+        },
+        {
+          "id": 21000,
           "time": "18:00",
+          "category": "Feminino",
           "teamA": "1º Fase de grupos",
           "teamB": "2º Fase de grupos",
           "score": {},

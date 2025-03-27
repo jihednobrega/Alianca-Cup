@@ -30,7 +30,10 @@ export function calculateTeamStats(teams: Team[], matchesData: MatchesData) {
   return teams.map((team) => {
     const teamMatches = matches.filter(
       (match) =>
-        (match.teamA === team.id || match.teamB === team.id) && match.score && match.sets && match.sets.length > 0,
+        (match.teamA === team.id || match.teamB === team.id) &&
+        match.score &&
+        match.sets &&
+        match.sets.length > 0,
     )
 
     const stats = teamMatches.reduce(
@@ -69,7 +72,11 @@ export function calculateTeamStats(teams: Team[], matchesData: MatchesData) {
               return teamBScore < teamAScore
             }).length
 
-        if (isTeamA ? match.score.teamA > match.score.teamB : match.score.teamB > match.score.teamA) {
+        if (
+          isTeamA
+            ? match.score.teamA > match.score.teamB
+            : match.score.teamB > match.score.teamA
+        ) {
           acc.wins += 1
         } else {
           acc.losses += 1
