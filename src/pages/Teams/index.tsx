@@ -3,7 +3,6 @@ import { TeamsContainer, TeamCard } from './styles'
 import { useEffect, useState } from 'react'
 
 export function Teams() {
-  const [teams, setTeams] = useState<any[]>([])
   const [maleTeams, setMaleTeams] = useState<any[]>([])
   const [femaleTeams, setFemaleTeams] = useState<any[]>([])
 
@@ -21,7 +20,6 @@ export function Teams() {
           (team: any) => team.category === 'Feminino',
         )
 
-        setTeams(teamsData)
         setMaleTeams(maleTeamsData)
         setFemaleTeams(femaleTeamsData)
       } catch (error) {
