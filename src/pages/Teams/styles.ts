@@ -11,6 +11,7 @@ export const TeamsContainer = styled.main`
   }
 
   h2 {
+    font-family: 'Roboto Mono', monospace;
     font-size: 1.2rem;
     margin-block: 1.2rem 0.8rem;
   }

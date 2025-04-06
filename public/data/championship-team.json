@@ -10,86 +10,86 @@
         "playerName": "João",
         "playerPosition": "OPOSTO",
         "playerNumber": "9",
-        "playerImage": "/assets/players/aliança/João.png"
+        "playerImage": "/assets/players/masc/aliança/João.png"
       },
       {
         "playerName": "Wheverton",
         "playerPosition": "CENTRAL",
         "playerNumber": "10",
-        "playerImage": "/assets/players/up/Wheverton.png"
+        "playerImage": "/assets/players/masc/up/Wheverton.png"
       },
       {
         "playerName": "Jean",
         "playerPosition": "PONTEIRO",
         "playerNumber": "9",
-        "playerImage": "/assets/players/neopolis/Jean.png"
+        "playerImage": "/assets/players/masc/neopolis/Jean.png"
       },
       {
         "playerName": "Pedro Igor",
         "playerPosition": "PONTEIRO",
         "playerNumber": "15",
-        "playerImage": "/assets/players/união/Pedro Igor.png"
+        "playerImage": "/assets/players/masc/união/Pedro Igor.png"
       },
       {
         "playerName": "Sampaio",
         "playerPosition": "CENTRAL",
         "playerNumber": "6",
-        "playerImage": "/assets/players/san marino/Vitor.png"
+        "playerImage": "/assets/players/masc/san marino/Vitor.png"
       },
       {
         "playerName": "Cláudio",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "26",
-        "playerImage": "/assets/players/aliança/Claudio.png"
+        "playerImage": "/assets/players/masc/aliança/Claudio.png"
       },
       {
         "playerName": "Kildere",
         "playerPosition": "CENTRAL",
         "playerNumber": "10",
-        "playerImage": "/assets/players/aliança/Kildere.png"
+        "playerImage": "/assets/players/masc/aliança/Kildere.png"
       },
       {
         "playerName": "Duda",
         "playerPosition": "PONTEIRO",
         "playerNumber": "9",
-        "playerImage": "/assets/players/gela/Duda.png"
+        "playerImage": "/assets/players/masc/gela/Duda.png"
       },
       {
         "playerName": "Gabriel",
         "playerPosition": "LEVANTADOR",
         "playerNumber": "2",
-        "playerImage": "/assets/players/união/Gabriel.png"
+        "playerImage": "/assets/players/masc/união/Gabriel.png"
       },
       {
         "playerName": "Pedro P.",
         "playerPosition": "CENTRAL",
         "playerNumber": "80",
-        "playerImage": "/assets/players/gela/Pedro Paulo.png"
+        "playerImage": "/assets/players/masc/gela/Pedro Paulo.png"
       },
       {
         "playerName": "Igor",
         "playerPosition": "OPOSTO",
         "playerNumber": "7",
-        "playerImage": "/assets/players/união/Igor.png"
+        "playerImage": "/assets/players/masc/união/Igor.png"
       },
       {
         "playerName": "Yuri",
         "playerPosition": "LIBERO",
         "playerNumber": "3",
-        "playerImage": "/assets/players/gela/Yuri.png"
+        "playerImage": "/assets/players/masc/gela/Yuri.png"
       },
       {
         "playerName": "Eli",
         "playerPosition": "PONTEIRO",
         "playerNumber": "3",
-        "playerImage": "/assets/players/up/Eliziano.png"
+        "playerImage": "/assets/players/masc/up/Eliziano.png"
       }
     ],
     "libero": {
       "playerName": "Rafa",
       "playerPosition": "LIBERO",
       "playerNumber": "6",
-      "playerImage": "/assets/players/neopolis/Rafa.png",
+      "playerImage": "/assets/players/masc/neopolis/Rafa.png",
       "substitutes": [4]
     }
   }
